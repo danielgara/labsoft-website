@@ -1,25 +1,34 @@
 <template>
-  <button class="bg-emerald-500 hover:bg-emerald-400 text-black px-8 py-4 rounded-2xl font-bold text-lg transition-all flex items-center gap-2 neon-glow"
-    @click="$emit('click')">
-    <a v-if="href" :href="href" class="flex items-center gap-2">
-      <slot />
-    </a>
-    <slot v-else />
-    <svg v-if="showChevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="lucide lucide-chevron-right w-5 h-5" aria-hidden="true">
-      <path d="m9 18 6-6-6-6"></path>
-    </svg>
+  <RouterLink v-if="to" :to="to" :class="styles">
+    <slot />
+    <ChevronRightIcon v-if="showChevron" />
+  </RouterLink>
+  <button v-else :type="type" :class="styles" @click="$emit('click')">
+    <slot />
+    <ChevronRightIcon v-if="showChevron" />
   </button>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  href?: string
-  showChevron?: boolean
-}>()
+import { RouterLink, type RouteLocationRaw } from 'vue-router';
+import ChevronRightIcon from '../ui/ChevronRightIcon.vue';
+
+withDefaults(
+  defineProps<{
+    to?: RouteLocationRaw;
+    showChevron?: boolean;
+    type?: 'button' | 'submit';
+  }>(),
+  {
+    to: undefined,
+    type: 'button',
+  },
+);
 
 defineEmits<{
-  click: []
-}>()
+  click: [];
+}>();
+
+const styles =
+  'neon-glow inline-flex items-center gap-2 rounded-2xl bg-emerald-500 px-8 py-4 text-lg font-bold text-black transition-all hover:bg-emerald-400';
 </script>

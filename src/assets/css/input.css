@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+/* Tokens del sistema de diseño LabSoft.
+   En Tailwind v4 el tema vive en CSS, no en tailwind.config.js. */
+@theme {
+  --font-sans: system-ui, sans-serif;
+
+  --color-background: #0f172a;
+  --color-foreground: #f1f5f9;
+
+  --animate-fade-in-up: fadeInUp 0.35s ease-out forwards;
+  --animate-slide-in-left: slideInLeft 0.35s ease-out forwards;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-background);
+  }
+
+  body {
+    @apply bg-slate-950 font-sans text-white;
+  }
+}
+
+/* Efecto glassmorphism */
+@utility glass {
+  @apply rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg;
+}
+
+/* Variante interactiva del glass (incluye el glass base) */
+@utility glass-hover {
+  @apply rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg;
+  @apply cursor-pointer transition-all duration-300 hover:border-white/30 hover:bg-white/20;
+}
+
+/* Resplandor neón esmeralda */
+@utility neon-glow {
+  box-shadow:
+    0 0 20px rgba(16, 185, 129, 0.5),
+    0 0 40px rgba(16, 185, 129, 0.3),
+    inset 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+/* Texto con degradado esmeralda -> azul */
+@utility gradient-text {
+  @apply bg-linear-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent;
+}

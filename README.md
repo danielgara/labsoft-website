@@ -1,188 +1,101 @@
-# LabSoft - Migración a Vue.js
+# LabSoft — Sitio web
 
-Este proyecto ha sido migrado exitosamente de HTML/CSS vanilla a **Vue 3 + Vite + Tailwind CSS** manteniendo el mismo diseño y estilos.
+Aplicación **SPA/CSR** del Laboratorio de Software de la Universidad EAFIT, construida con
+Vue 3, Vue Router, Pinia, TypeScript, Vite y Tailwind CSS v4.
 
-## 🎯 Características de la Migración
+El proyecto fue regenerado con `npm create vue@latest` siguiendo el _Tutorial 03 – SPA/CSR con Vue.js_,
+para que la estructura coincida con la de los demás proyectos Vue del curso.
 
-- ✅ **Vue 3** con Composition API y SFC (Single File Components)
-- ✅ **Vite** como bundler ultrarrápido
-- ✅ **Tailwind CSS v3** para estilos reutilizables
-- ✅ **TypeScript** para type-safety
-- ✅ Componentes reutilizables y modulares
-- ✅ Glassmorphism y neon-glow effects preservados
-- ✅ Animaciones fade-in y slide-in
+## Stack
 
-## 📁 Estructura del Proyecto
+| Herramienta     | Uso                                                    |
+| --------------- | ------------------------------------------------------ |
+| Vue 3           | Framework de UI (Composition API + `<script setup>`)   |
+| Vue Router      | Enrutamiento del lado del cliente                      |
+| Pinia           | Estado global (contenido del laboratorio)              |
+| TypeScript      | Tipado estático                                        |
+| Vite            | Servidor de desarrollo y bundler                       |
+| Tailwind CSS v4 | Estilos (configurado en CSS, sin `tailwind.config.js`) |
+| ESLint + oxlint | Calidad de código                                      |
+| Prettier        | Formateo                                               |
+| Font Awesome 6  | Iconos (vía CDN en `index.html`)                       |
+
+## Requisitos
+
+Node.js `^22.18.0` o `>=24.12.0`.
+
+## Puesta en marcha
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+La aplicación queda en http://localhost:5173.
+
+## Scripts
+
+| Comando              | Qué hace                            |
+| -------------------- | ----------------------------------- |
+| `npm run dev`        | Servidor de desarrollo con HMR      |
+| `npm run build`      | Verifica tipos y compila a `dist/`  |
+| `npm run preview`    | Sirve la build de producción        |
+| `npm run type-check` | Verificación de tipos con `vue-tsc` |
+| `npm run lint`       | oxlint + ESLint (con `--fix`)       |
+| `npm run format`     | Formatea `src/` con Prettier        |
+
+## Rutas
+
+| Ruta          | Nombre      | Vista           |
+| ------------- | ----------- | --------------- |
+| `/`           | `home`      | `HomeView`      |
+| `/equipo`     | `equipo`    | `EquipoView`    |
+| `/productos`  | `productos` | `ProductosView` |
+| `/aliados`    | `aliados`   | `AliadosView`   |
+| `/contacto`   | `contacto`  | `ContactoView`  |
+| `/:pathMatch` | `not-found` | `NotFoundView`  |
+
+Cada ruta define `meta.title`, que el router usa para actualizar el título del documento.
+Todas las vistas salvo `HomeView` se cargan de forma diferida (code splitting).
+
+## Estructura
 
 ```
 src/
-├── App.vue                          # Componente principal
-├── main.ts                          # Punto de entrada
-├── style.css                        # Estilos globales con Tailwind
+├── App.vue                 # Layout: fondo, header, <RouterView/> y footer
+├── main.ts                 # Punto de entrada (Pinia + Router)
+├── assets/css/input.css    # Tailwind v4: @theme, @utility y estilos base
+├── router/index.ts         # Definición de rutas y títulos
+├── stores/labsoft.ts       # Store de Pinia con equipo, productos y aliados
+├── views/                  # Una vista por ruta
+│   ├── HomeView.vue
+│   ├── EquipoView.vue
+│   ├── ProductosView.vue
+│   ├── AliadosView.vue
+│   ├── ContactoView.vue
+│   └── NotFoundView.vue
 └── components/
-    ├── common/                      # Componentes comunes
-    │   ├── AppHeader.vue           # Navegación principal
-    │   └── NavLink.vue             # Links de navegación
-    ├── buttons/                     # Componentes de botones
-    │   ├── PrimaryButton.vue       # Botón primario (emerald)
-    │   ├── SecondaryButton.vue     # Botón secundario (glass)
-    │   └── SearchButton.vue        # Botón de búsqueda
-    ├── cards/                       # Componentes de tarjetas
-    │   ├── GlassCard.vue           # Tarjeta con efecto glass
-    │   └── InfoCard.vue            # Tarjeta informativa
-    ├── sections/                    # Secciones principales
-    │   └── HeroSection.vue         # Sección hero
-    └── ui/                          # Componentes de UI
-        └── BackgroundGradients.vue  # Gradientes de fondo animados
+    ├── common/             # AppHeader, AppFooter, NavLink
+    ├── buttons/            # PrimaryButton, SecondaryButton, SearchButton
+    ├── cards/              # GlassCard, PreviewCard
+    ├── sections/           # HeroSection
+    └── ui/                 # BackgroundGradients, PageHeading, ChevronRightIcon
 ```
 
-## 🚀 Comandos Disponibles
+## Sistema de diseño
 
-```bash
-# Desarrollo con HMR
-pnpm dev
+Los tokens y utilidades viven en `src/assets/css/input.css`. En Tailwind v4 el tema se declara
+en CSS con `@theme`, no en un archivo de configuración de JavaScript.
 
-# Build para producción
-pnpm build
+- **Colores**: `emerald-500` (primario), `blue-500` (acento), `purple-500` (secundario) sobre `slate-950`.
+- **Utilidades propias**: `glass`, `glass-hover`, `neon-glow`, `gradient-text`.
+- **Animaciones**: `animate-fade-in-up`, `animate-slide-in-left`, registradas como `--animate-*` en `@theme`.
 
-# Preview de la build
-pnpm preview
+## Nota sobre el despliegue
 
-# Lint
-pnpm lint
-```
-
-## 🎨 Sistema de Diseño
-
-### Colores
-- **Primary**: Emerald-500 (#10B981) con efecto neon-glow
-- **Accent**: Blue-500 (#3B82F6)
-- **Secondary**: Purple-500 (#A855F7)
-- **Background**: Slate-950 (#03111d)
-- **Glass**: White/10 backdrop con blur
-
-### Componentes Reutilizables
-
-#### PrimaryButton
-```vue
-<PrimaryButton href="#equipo" :showChevron="true">
-  Ver Equipo
-</PrimaryButton>
-```
-
-#### SecondaryButton
-```vue
-<SecondaryButton href="#productos">
-  Ver Productos
-</SecondaryButton>
-```
-
-#### InfoCard
-```vue
-<InfoCard title="Equipo">
-  Somos profesores, administrativos y estudiantes...
-</InfoCard>
-```
-
-#### GlassCard
-```vue
-<GlassCard>
-  <!-- Contenido con efecto glass -->
-</GlassCard>
-```
-
-## ✨ Características Especiales
-
-### Efectos Visuales
-- **Glass Effect**: Fondo translúcido con backdrop blur
-- **Neon Glow**: Resplandor verde esmeralda en elementos primarios
-- **Gradient Text**: Gradiente de esmeralda a azul en títulos
-- **Background Gradients**: Gradientes animados de fondo
-
-### Animaciones
-- **Fade In Up**: Aparición con movimiento vertical
-- **Slide In Left**: Deslizamiento desde la izquierda
-
-## 🔧 Configuración
-
-### Tailwind Config
-El proyecto utiliza Tailwind CSS v3 con tema personalizado en `tailwind.config.js`:
-
-```js
-{
-  colors: {
-    background: '#0f172a',
-    foreground: '#f1f5f9',
-  }
-}
-```
-
-### Vite Config
-```ts
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-
-export default defineConfig({
-  plugins: [vue()],
-  server: {
-    port: 5173,
-    host: true
-  }
-})
-```
-
-## 📝 Notas Importantes
-
-### Cambios desde el original
-1. El archivo `terminal-box` se eliminó según los requisitos
-2. El `metric-display` se eliminó según los requisitos
-3. Los `floating-icons` se eliminaron según los requisitos
-4. El `app-footer` se eliminó según los requisitos
-5. Se mantiene la estructura modular para fácil expansión futura
-
-### Cómo agregar nuevos componentes
-
-1. Crear el archivo `.vue` en la carpeta correspondiente
-2. Exportar como componente reutilizable
-3. Importar en `App.vue` o en otros componentes
-4. Utilizar con props e eventos según sea necesario
-
-## 🎓 Ejemplo: Agregar una nueva sección
-
-```vue
-<!-- src/components/sections/ProductosSection.vue -->
-<template>
-  <section class="relative z-10 max-w-7xl mx-auto px-6 py-20">
-    <h2 class="text-4xl font-bold mb-12">Productos</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <InfoCard v-for="producto in productos" :key="producto.id" :title="producto.nombre">
-        {{ producto.descripcion }}
-      </InfoCard>
-    </div>
-  </section>
-</template>
-
-<script setup lang="ts">
-const productos = [
-  { id: 1, nombre: "Producto 1", descripcion: "..." }
-]
-</script>
-```
-
-## 📦 Dependencias Principales
-
-- **vue**: 3.5.40
-- **vite**: 8.2.0
-- **tailwindcss**: 3.4.19
-- **typescript**: 5.7.3
-
-## ✅ Status
-
-- ✅ Componentes creados
-- ✅ Estilos Tailwind aplicados
-- ✅ Build compilado exitosamente
-- ✅ Servidor Vite funcionando
-- ✅ Proyecto listo para desarrollo
-
-Para más información sobre Vue 3, visita [vue.dev](https://vue.dev)
-Para más información sobre Vite, visita [vitejs.dev](https://vitejs.dev)
+El router usa `createWebHistory`, así que el servidor debe reescribir todas las rutas hacia
+`index.html`. En Vite (`dev` y `preview`) esto ya funciona; en producción hay que configurarlo
+según el proveedor de hosting.

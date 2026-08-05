@@ -1,11 +1,16 @@
 <template>
-  <a :href="href" class="glass glass-hover px-8 py-4 rounded-2xl font-bold text-lg">
+  <RouterLink
+    :to="to"
+    class="glass glass-hover inline-flex items-center rounded-2xl px-8 py-4 text-lg font-bold"
+  >
     <slot />
-  </a>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
+import { RouterLink, type RouteLocationRaw } from 'vue-router';
+
 defineProps<{
-  href: string
-}>()
+  to: RouteLocationRaw;
+}>();
 </script>

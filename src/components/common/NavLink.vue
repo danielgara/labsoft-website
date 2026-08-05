@@ -1,12 +1,14 @@
 <template>
-  <a :href="href" class="hover:text-white transition-colors">
+  <RouterLink :to="to" class="transition-colors hover:text-white" exact-active-class="text-white">
     {{ label }}
-  </a>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
+import { RouterLink, type RouteLocationRaw } from 'vue-router';
+
 defineProps<{
-  href: string
-  label: string
-}>()
+  to: RouteLocationRaw;
+  label: string;
+}>();
 </script>
