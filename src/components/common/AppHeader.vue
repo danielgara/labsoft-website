@@ -6,7 +6,7 @@
         <RouterLink :to="{ name: 'home' }" class="flex items-center gap-2">
           <!-- alt vacío a propósito: el nombre ya lo aporta el wordmark de al lado -->
           <img
-            src="/logo.png"
+            src="/Labsoft-Icon.png"
             alt=""
             width="40"
             height="40"
