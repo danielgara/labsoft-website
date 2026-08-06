@@ -5,7 +5,6 @@ import { useRoute } from 'vue-router';
 
 // types
 type Props = {
-  // Only when the heading must differ from the route title
   title?: string;
   subtitle?: string;
 };

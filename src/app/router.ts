@@ -5,7 +5,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/features/home/views/HomeView.vue';
 
 // types
-// Types route.meta across the app: without this, `meta.title` would be `unknown`.
 declare module 'vue-router' {
   interface RouteMeta {
     title: string;
@@ -19,26 +18,26 @@ const router = createRouter({
     { path: '/', name: 'home.index', component: HomeView, meta: { title: 'Inicio' } },
     {
       path: '/equipo',
-      name: 'equipo.index',
-      component: () => import('@/features/team/views/TeamIndexView.vue'),
+      name: 'home.team',
+      component: () => import('@/features/home/views/TeamIndexView.vue'),
       meta: { title: 'Equipo' },
     },
     {
       path: '/productos',
-      name: 'productos.index',
-      component: () => import('@/features/product/views/ProductIndexView.vue'),
+      name: 'home.products',
+      component: () => import('@/features/home/views/ProductIndexView.vue'),
       meta: { title: 'Productos' },
     },
     {
       path: '/aliados',
-      name: 'aliados.index',
-      component: () => import('@/features/ally/views/AllyIndexView.vue'),
+      name: 'home.allies',
+      component: () => import('@/features/home/views/AllyIndexView.vue'),
       meta: { title: 'Aliados' },
     },
     {
       path: '/:pathMatch(.*)*',
-      name: 'error.notFound',
-      component: () => import('@/features/error/views/NotFoundView.vue'),
+      name: 'home.notFound',
+      component: () => import('@/features/home/views/NotFoundView.vue'),
       meta: { title: 'Página no encontrada' },
     },
   ],

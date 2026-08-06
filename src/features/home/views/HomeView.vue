@@ -8,7 +8,7 @@ import AppButton from '@/shared/components/AppButton.vue';
 // constants
 const sections = [
   {
-    to: { name: 'equipo.index' },
+    to: { name: 'home.team' },
     title: 'Equipo',
     icon: 'fas fa-code',
     iconColor: 'text-emerald-400',
@@ -17,7 +17,7 @@ const sections = [
     linkLabel: 'Conocer al equipo',
   },
   {
-    to: { name: 'productos.index' },
+    to: { name: 'home.products' },
     title: 'Productos',
     icon: 'fas fa-layer-group',
     iconColor: 'text-blue-400',
@@ -25,7 +25,7 @@ const sections = [
     linkLabel: 'Ver productos',
   },
   {
-    to: { name: 'aliados.index' },
+    to: { name: 'home.allies' },
     title: 'Aliados',
     icon: 'fas fa-cube',
     iconColor: 'text-purple-400',
@@ -50,8 +50,8 @@ const sections = [
             se dedica a crear productos de Software para la Universidad.
           </p>
           <div class="flex flex-wrap gap-4">
-            <AppButton :to="{ name: 'equipo.index' }" show-chevron>Ver Equipo</AppButton>
-            <AppButton :to="{ name: 'productos.index' }" variant="secondary">
+            <AppButton :to="{ name: 'home.team' }" show-chevron>Ver Equipo</AppButton>
+            <AppButton :to="{ name: 'home.products' }" variant="secondary">
               Ver Productos
             </AppButton>
           </div>
@@ -60,7 +60,6 @@ const sections = [
         <div class="animate-slide-in-left relative">
           <div class="glass rounded-3xl p-6">
             <div class="flex h-full flex-col">
-              <!-- Fake browser chrome -->
               <div class="mb-4 flex items-center gap-2 px-2">
                 <div class="flex gap-1.5">
                   <div class="h-3 w-3 rounded-full bg-red-500/50"></div>

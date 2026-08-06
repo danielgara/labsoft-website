@@ -7,9 +7,8 @@ import type AllyInterface from '@/shared/interfaces/AllyInterface';
 import type ProductInterface from '@/shared/interfaces/ProductInterface';
 import type TeamMemberInterface from '@/shared/interfaces/TeamMemberInterface';
 
-// Lab content, centralized here so views only have to present it.
+// main export
 export const useLabsoftStore = defineStore('labsoft', () => {
-  // reactive variables
   const team = ref<TeamMemberInterface[]>([
     { name: 'Daniel Correa', role: 'Director del Laboratorio' },
     { name: 'Santiago Gomez', role: 'Desarrollador' },

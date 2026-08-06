@@ -49,13 +49,13 @@ La aplicación queda en http://localhost:5173.
 
 ## Rutas
 
-| Ruta          | Nombre            | Vista                  |
-| ------------- | ----------------- | ---------------------- |
-| `/`           | `home.index`      | `HomeView`             |
-| `/equipo`     | `equipo.index`    | `TeamIndexView`        |
-| `/productos`  | `productos.index` | `ProductIndexView`     |
-| `/aliados`    | `aliados.index`   | `AllyIndexView`        |
-| `/:pathMatch` | `error.notFound`  | `NotFoundView`         |
+| Ruta          | Nombre          | Vista              |
+| ------------- | --------------- | ------------------ |
+| `/`           | `home.index`    | `HomeView`         |
+| `/equipo`     | `home.team`     | `TeamIndexView`    |
+| `/productos`  | `home.products` | `ProductIndexView` |
+| `/aliados`    | `home.allies`   | `AllyIndexView`    |
+| `/:pathMatch` | `home.notFound` | `NotFoundView`     |
 
 Cada ruta define `meta.title`, que el router usa para actualizar el título del documento.
 Todas las vistas salvo `HomeView` se cargan de forma diferida (code splitting).
@@ -74,12 +74,13 @@ src/
 ├── assets/
 │   ├── css/input.css           # Tailwind v4: @theme, @utility y estilos base
 │   └── Labsoft-Icon.png        # Logo: favicon y marca del header
-├── features/                   # Una carpeta por dominio, con sus vistas
-│   ├── home/views/HomeView.vue           # Hero y tarjetas de la portada
-│   ├── team/views/TeamIndexView.vue
-│   ├── product/views/ProductIndexView.vue
-│   ├── ally/views/AllyIndexView.vue
-│   └── error/views/NotFoundView.vue
+├── features/
+│   └── home/views/             # El sitio es un solo dominio: la portada y sus secciones
+│       ├── HomeView.vue        # Hero y tarjetas de la portada
+│       ├── TeamIndexView.vue
+│       ├── ProductIndexView.vue
+│       ├── AllyIndexView.vue
+│       └── NotFoundView.vue
 └── shared/                     # Transversal a varias features
     ├── components/
     │   ├── AppHeader.vue       # Navegación de escritorio y menú móvil

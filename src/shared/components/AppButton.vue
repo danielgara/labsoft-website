@@ -5,7 +5,6 @@ import { RouterLink, type RouteLocationRaw } from 'vue-router';
 
 // types
 type Props = {
-  // When set, the button renders as a router link instead
   to?: RouteLocationRaw;
   variant?: 'primary' | 'secondary';
   showChevron?: boolean;

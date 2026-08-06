@@ -11,7 +11,6 @@ const currentYear = new Date().getFullYear();
 
 <template>
   <div class="relative min-h-screen bg-slate-950 font-sans">
-    <!-- Decorative blurred blobs behind everything else. -->
     <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       <div
         class="absolute top-[-10%] left-[-10%] h-[40%] w-[40%] rounded-full bg-emerald-500/10 blur-[120px]"

@@ -12,9 +12,9 @@ const navLinkClass = 'transition-colors hover:text-white';
 
 const navItems = [
   { name: 'home.index', label: 'Inicio' },
-  { name: 'equipo.index', label: 'Equipo' },
-  { name: 'productos.index', label: 'Productos' },
-  { name: 'aliados.index', label: 'Aliados' },
+  { name: 'home.team', label: 'Equipo' },
+  { name: 'home.products', label: 'Productos' },
+  { name: 'home.allies', label: 'Aliados' },
 ];
 
 // watchers
