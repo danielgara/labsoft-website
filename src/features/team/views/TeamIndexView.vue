@@ -1,8 +1,12 @@
 <script setup lang="ts">
+// external libraries imports
 import { storeToRefs } from 'pinia';
-import { useLabsoftStore } from '@/stores/labsoft';
-import PageHeading from '@/components/ui/PageHeading.vue';
 
+// internal application code imports
+import PageHeading from '@/shared/components/PageHeading.vue';
+import { useLabsoftStore } from '@/shared/stores/labsoft';
+
+// selectors
 const { team } = storeToRefs(useLabsoftStore());
 </script>
 
@@ -20,8 +24,9 @@ const { team } = storeToRefs(useLabsoftStore());
       >
         <div
           class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10"
+          aria-hidden="true"
         >
-          <i class="fas fa-user text-emerald-400" aria-hidden="true"></i>
+          <i class="fas fa-user text-xl text-emerald-400"></i>
         </div>
         <div>
           <h3 class="font-bold">{{ member.name }}</h3>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import PrimaryButton from '@/components/buttons/PrimaryButton.vue';
+// internal application code imports
+import AppButton from '@/shared/components/AppButton.vue';
 </script>
 
 <template>
@@ -9,6 +10,6 @@ import PrimaryButton from '@/components/buttons/PrimaryButton.vue';
     <p class="mb-10 max-w-md leading-relaxed text-white/60">
       El enlace que seguiste no corresponde a ninguna sección del sitio.
     </p>
-    <PrimaryButton :to="{ name: 'home' }" show-chevron>Volver al inicio</PrimaryButton>
+    <AppButton :to="{ name: 'home.index' }" show-chevron>Volver al inicio</AppButton>
   </section>
 </template>

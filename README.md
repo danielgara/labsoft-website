@@ -49,41 +49,51 @@ La aplicación queda en http://localhost:5173.
 
 ## Rutas
 
-| Ruta          | Nombre      | Vista           |
-| ------------- | ----------- | --------------- |
-| `/`           | `home`      | `HomeView`      |
-| `/equipo`     | `equipo`    | `EquipoView`    |
-| `/productos`  | `productos` | `ProductosView` |
-| `/aliados`    | `aliados`   | `AliadosView`   |
-| `/contacto`   | `contacto`  | `ContactoView`  |
-| `/:pathMatch` | `not-found` | `NotFoundView`  |
+| Ruta          | Nombre            | Vista                  |
+| ------------- | ----------------- | ---------------------- |
+| `/`           | `home.index`      | `HomeView`             |
+| `/equipo`     | `equipo.index`    | `TeamIndexView`        |
+| `/productos`  | `productos.index` | `ProductIndexView`     |
+| `/aliados`    | `aliados.index`   | `AllyIndexView`        |
+| `/:pathMatch` | `error.notFound`  | `NotFoundView`         |
 
 Cada ruta define `meta.title`, que el router usa para actualizar el título del documento.
 Todas las vistas salvo `HomeView` se cargan de forma diferida (code splitting).
 
 ## Estructura
 
+El código se organiza por _features_ (`app` / `features` / `shared`), igual que los demás
+proyectos Vue del curso.
+
 ```
 src/
-├── App.vue                 # Layout: fondo, header, <RouterView/> y footer
-├── main.ts                 # Punto de entrada (Pinia + Router)
-├── assets/css/input.css    # Tailwind v4: @theme, @utility y estilos base
-├── router/index.ts         # Definición de rutas y títulos
-├── stores/labsoft.ts       # Store de Pinia con equipo, productos y aliados
-├── views/                  # Una vista por ruta
-│   ├── HomeView.vue
-│   ├── EquipoView.vue
-│   ├── ProductosView.vue
-│   ├── AliadosView.vue
-│   ├── ContactoView.vue
-│   └── NotFoundView.vue
-└── components/
-    ├── common/             # AppHeader, AppFooter, NavLink
-    ├── buttons/            # PrimaryButton, SecondaryButton, SearchButton
-    ├── cards/              # GlassCard, PreviewCard
-    ├── sections/           # HeroSection
-    └── ui/                 # BackgroundGradients, PageHeading, ChevronRightIcon
+├── app/                        # Arranque y cableado de la aplicación
+│   ├── App.vue                 # Layout: fondo, header, <RouterView/> y footer
+│   ├── main.ts                 # Punto de entrada (Pinia + Router)
+│   └── router.ts               # Definición de rutas y títulos
+├── assets/
+│   ├── css/input.css           # Tailwind v4: @theme, @utility y estilos base
+│   └── Labsoft-Icon.png        # Logo: favicon y marca del header
+├── features/                   # Una carpeta por dominio, con sus vistas
+│   ├── home/views/HomeView.vue           # Hero y tarjetas de la portada
+│   ├── team/views/TeamIndexView.vue
+│   ├── product/views/ProductIndexView.vue
+│   ├── ally/views/AllyIndexView.vue
+│   └── error/views/NotFoundView.vue
+└── shared/                     # Transversal a varias features
+    ├── components/
+    │   ├── AppHeader.vue       # Navegación de escritorio y menú móvil
+    │   ├── AppButton.vue       # variant="primary" | "secondary"; con `to` es un RouterLink
+    │   └── PageHeading.vue     # Título tomado de meta.title de la ruta
+    ├── interfaces/             # Tipos del contenido (equipo, productos, aliados)
+    └── stores/labsoft.ts       # Store de Pinia con equipo, productos y aliados
 ```
+
+Aún no hay `services/`: el sitio no consume una API, el contenido vive en el store de Pinia.
+
+Solo se extrae a componente lo que se reutiliza entre vistas o tiene lógica propia. Las tarjetas
+son markup de Tailwind escrito directamente en cada vista: son cuatro variantes distintas de la
+misma idea y un componente único habría necesitado más props que líneas de plantilla.
 
 ## Sistema de diseño
 

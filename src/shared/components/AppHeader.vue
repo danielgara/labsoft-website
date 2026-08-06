@@ -1,12 +1,40 @@
+<script setup lang="ts">
+// external libraries imports
+import { ref, watch } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+
+// reactive variables
+const isMenuOpen = ref(false);
+const route = useRoute();
+
+// constants
+const navLinkClass = 'transition-colors hover:text-white';
+
+const navItems = [
+  { name: 'home.index', label: 'Inicio' },
+  { name: 'equipo.index', label: 'Equipo' },
+  { name: 'productos.index', label: 'Productos' },
+  { name: 'aliados.index', label: 'Aliados' },
+];
+
+// watchers
+// Close the mobile menu whenever the route changes.
+watch(
+  () => route.fullPath,
+  () => {
+    isMenuOpen.value = false;
+  },
+);
+</script>
+
 <template>
   <nav class="sticky top-0 z-50 px-6 py-4">
     <div class="glass mx-auto max-w-7xl rounded-2xl px-6 py-3">
       <div class="flex items-center justify-between">
-        <!-- Logo -->
-        <RouterLink :to="{ name: 'home' }" class="flex items-center gap-2">
-          <!-- alt vacío a propósito: el nombre ya lo aporta el wordmark de al lado -->
+        <RouterLink :to="{ name: 'home.index' }" class="flex items-center gap-2">
+          <!-- Empty alt on purpose: the wordmark next to it already carries the name. -->
           <img
-            src="/Labsoft-Icon.png"
+            src="@/assets/Labsoft-Icon.png"
             alt=""
             width="40"
             height="40"
@@ -17,17 +45,20 @@
           </span>
         </RouterLink>
 
-        <!-- Navegación de escritorio -->
+        <!-- Desktop navigation -->
         <div class="hidden items-center gap-8 text-sm font-medium text-white/60 md:flex">
-          <NavLink
+          <RouterLink
             v-for="item in navItems"
             :key="item.name"
             :to="{ name: item.name }"
-            :label="item.label"
-          />
+            :class="navLinkClass"
+            exact-active-class="text-white"
+          >
+            {{ item.label }}
+          </RouterLink>
         </div>
 
-        <!-- Botón de menú móvil (en escritorio se oculta y la navegación queda a la derecha) -->
+        <!-- Mobile menu toggle -->
         <button
           type="button"
           class="p-2 text-white/60 transition-colors hover:text-white md:hidden"
@@ -39,43 +70,21 @@
         </button>
       </div>
 
-      <!-- Navegación móvil -->
+      <!-- Mobile navigation -->
       <div
         v-if="isMenuOpen"
         class="mt-3 flex flex-col gap-3 border-t border-white/10 pt-3 text-sm font-medium text-white/60 md:hidden"
       >
-        <NavLink
+        <RouterLink
           v-for="item in navItems"
           :key="item.name"
           :to="{ name: item.name }"
-          :label="item.label"
-        />
+          :class="navLinkClass"
+          exact-active-class="text-white"
+        >
+          {{ item.label }}
+        </RouterLink>
       </div>
     </div>
   </nav>
 </template>
-
-<script setup lang="ts">
-import { ref, watch } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
-import NavLink from './NavLink.vue';
-
-const navItems = [
-  { name: 'home', label: 'Inicio' },
-  { name: 'equipo', label: 'Equipo' },
-  { name: 'productos', label: 'Productos' },
-  { name: 'aliados', label: 'Aliados' },
-  { name: 'contacto', label: 'Contacto' },
-];
-
-const isMenuOpen = ref(false);
-const route = useRoute();
-
-// Cerrar el menú móvil al cambiar de ruta.
-watch(
-  () => route.fullPath,
-  () => {
-    isMenuOpen.value = false;
-  },
-);
-</script>

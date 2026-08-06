@@ -1,24 +1,16 @@
-import { ref } from 'vue';
+// external libraries imports
 import { defineStore } from 'pinia';
+import { ref } from 'vue';
 
-export interface TeamMember {
-  name: string;
-  role: string;
-}
+// internal application code imports
+import type AllyInterface from '@/shared/interfaces/AllyInterface';
+import type ProductInterface from '@/shared/interfaces/ProductInterface';
+import type TeamMemberInterface from '@/shared/interfaces/TeamMemberInterface';
 
-export interface Product {
-  name: string;
-  description: string;
-}
-
-export interface Ally {
-  name: string;
-  description: string;
-}
-
-/** Contenido del laboratorio. Centralizado aquí para que las vistas solo se ocupen de presentarlo. */
+/** Lab content, centralized here so views only have to present it. */
 export const useLabsoftStore = defineStore('labsoft', () => {
-  const team = ref<TeamMember[]>([
+  // reactive variables
+  const team = ref<TeamMemberInterface[]>([
     { name: 'Daniel Correa', role: 'Director del Laboratorio' },
     { name: 'Santiago Gomez', role: 'Desarrollador' },
     { name: 'Laura Ortiz', role: 'Desarrolladora' },
@@ -29,7 +21,7 @@ export const useLabsoftStore = defineStore('labsoft', () => {
     { name: 'Juan Esteban Trujillo', role: 'Desarrollador' },
   ]);
 
-  const products = ref<Product[]>([
+  const products = ref<ProductInterface[]>([
     {
       name: 'DensURBAM',
       description: 'Plataforma de gestión de capacidad de soporte de los territorios.',
@@ -40,7 +32,7 @@ export const useLabsoftStore = defineStore('labsoft', () => {
     },
   ]);
 
-  const allies = ref<Ally[]>([
+  const allies = ref<AllyInterface[]>([
     { name: 'Innovación', description: 'Dirección de Innovación EAFIT.' },
     {
       name: 'Área de Computación y Analítica',
