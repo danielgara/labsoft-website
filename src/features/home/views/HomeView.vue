@@ -6,8 +6,6 @@ import { RouterLink } from 'vue-router';
 import AppButton from '@/shared/components/AppButton.vue';
 
 // constants
-// Icon colors are written in full because Tailwind scans the source:
-// a `text-${color}-400` built at runtime would never be generated.
 const sections = [
   {
     to: { name: 'equipo.index' },

@@ -18,7 +18,6 @@ const navItems = [
 ];
 
 // watchers
-// Close the mobile menu whenever the route changes.
 watch(
   () => route.fullPath,
   () => {
@@ -32,7 +31,6 @@ watch(
     <div class="glass mx-auto max-w-7xl rounded-2xl px-6 py-3">
       <div class="flex items-center justify-between">
         <RouterLink :to="{ name: 'home.index' }" class="flex items-center gap-2">
-          <!-- Empty alt on purpose: the wordmark next to it already carries the name. -->
           <img
             src="@/assets/Labsoft-Icon.png"
             alt=""
@@ -45,7 +43,6 @@ watch(
           </span>
         </RouterLink>
 
-        <!-- Desktop navigation -->
         <div class="hidden items-center gap-8 text-sm font-medium text-white/60 md:flex">
           <RouterLink
             v-for="item in navItems"
@@ -58,7 +55,6 @@ watch(
           </RouterLink>
         </div>
 
-        <!-- Mobile menu toggle -->
         <button
           type="button"
           class="p-2 text-white/60 transition-colors hover:text-white md:hidden"
@@ -70,7 +66,6 @@ watch(
         </button>
       </div>
 
-      <!-- Mobile navigation -->
       <div
         v-if="isMenuOpen"
         class="mt-3 flex flex-col gap-3 border-t border-white/10 pt-3 text-sm font-medium text-white/60 md:hidden"

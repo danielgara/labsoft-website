@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router';
 
 // types
 type Props = {
-  /** Only when the heading must differ from the route title. */
+  // Only when the heading must differ from the route title
   title?: string;
   subtitle?: string;
 };
@@ -17,7 +17,6 @@ const props = defineProps<Props>();
 const route = useRoute();
 
 // selectors
-// The title defaults to the router's meta.title so views don't have to repeat it.
 const heading = computed(() => props.title ?? route.meta.title);
 </script>
 
