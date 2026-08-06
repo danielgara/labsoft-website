@@ -1,13 +1,19 @@
 <script setup lang="ts">
-// external libraries imports
-import { storeToRefs } from 'pinia';
-
 // internal application code imports
 import PageHeading from '@/shared/components/PageHeading.vue';
-import { useLabsoftStore } from '@/shared/stores/labsoft';
+import type ProductInterface from '@/shared/interfaces/ProductInterface';
 
-// selectors
-const { products } = storeToRefs(useLabsoftStore());
+// constants
+const products: ProductInterface[] = [
+  {
+    name: 'DensURBAM',
+    description: 'Plataforma de gestión de capacidad de soporte de los territorios.',
+  },
+  {
+    name: 'Clasificados',
+    description: 'Plataforma de clasificados de la comunidad EAFIT.',
+  },
+];
 </script>
 
 <template>

@@ -1,13 +1,17 @@
 <script setup lang="ts">
-// external libraries imports
-import { storeToRefs } from 'pinia';
-
 // internal application code imports
 import PageHeading from '@/shared/components/PageHeading.vue';
-import { useLabsoftStore } from '@/shared/stores/labsoft';
+import type AllyInterface from '@/shared/interfaces/AllyInterface';
 
-// selectors
-const { allies } = storeToRefs(useLabsoftStore());
+// constants
+const allies: AllyInterface[] = [
+  { name: 'Innovación', description: 'Dirección de Innovación EAFIT.' },
+  {
+    name: 'Área de Computación y Analítica',
+    description: 'Investigación y desarrollo aplicado.',
+  },
+  { name: 'Urbam', description: 'Centro de Estudios Urbanos y Ambientales.' },
+];
 </script>
 
 <template>

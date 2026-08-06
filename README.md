@@ -1,7 +1,7 @@
 # LabSoft — Sitio web
 
 Aplicación **SPA/CSR** del Laboratorio de Software de la Universidad EAFIT, construida con
-Vue 3, Vue Router, Pinia, TypeScript, Vite y Tailwind CSS v4.
+Vue 3, Vue Router, TypeScript, Vite y Tailwind CSS v4.
 
 El proyecto fue regenerado con `npm create vue@latest` siguiendo el _Tutorial 03 – SPA/CSR con Vue.js_,
 para que la estructura coincida con la de los demás proyectos Vue del curso.
@@ -12,7 +12,6 @@ para que la estructura coincida con la de los demás proyectos Vue del curso.
 | --------------- | ------------------------------------------------------ |
 | Vue 3           | Framework de UI (Composition API + `<script setup>`)   |
 | Vue Router      | Enrutamiento del lado del cliente                      |
-| Pinia           | Estado global (contenido del laboratorio)              |
 | TypeScript      | Tipado estático                                        |
 | Vite            | Servidor de desarrollo y bundler                       |
 | Tailwind CSS v4 | Estilos (configurado en CSS, sin `tailwind.config.js`) |
@@ -69,7 +68,7 @@ proyectos Vue del curso.
 src/
 ├── app/                        # Arranque y cableado de la aplicación
 │   ├── App.vue                 # Layout: fondo, header, <RouterView/> y footer
-│   ├── main.ts                 # Punto de entrada (Pinia + Router)
+│   ├── main.ts                 # Punto de entrada (monta la app y el Router)
 │   └── router.ts               # Definición de rutas y títulos
 ├── assets/
 │   ├── css/input.css           # Tailwind v4: @theme, @utility y estilos base
@@ -86,11 +85,11 @@ src/
     │   ├── AppHeader.vue       # Navegación de escritorio y menú móvil
     │   ├── AppButton.vue       # variant="primary" | "secondary"; con `to` es un RouterLink
     │   └── PageHeading.vue     # Título tomado de meta.title de la ruta
-    ├── interfaces/             # Tipos del contenido (equipo, productos, aliados)
-    └── stores/labsoft.ts       # Store de Pinia con equipo, productos y aliados
+    └── interfaces/             # Tipos del contenido (equipo, productos, aliados)
 ```
 
-Aún no hay `services/`: el sitio no consume una API, el contenido vive en el store de Pinia.
+Aún no hay `services/` ni `stores/`: el sitio no consume una API y su contenido es estático, así
+que cada vista declara sus datos como un arreglo tipado. No hay estado que compartir entre vistas.
 
 Solo se extrae a componente lo que se reutiliza entre vistas o tiene lógica propia. Las tarjetas
 son markup de Tailwind escrito directamente en cada vista: son cuatro variantes distintas de la

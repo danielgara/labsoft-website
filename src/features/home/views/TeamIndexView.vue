@@ -1,13 +1,19 @@
 <script setup lang="ts">
-// external libraries imports
-import { storeToRefs } from 'pinia';
-
 // internal application code imports
 import PageHeading from '@/shared/components/PageHeading.vue';
-import { useLabsoftStore } from '@/shared/stores/labsoft';
+import type TeamMemberInterface from '@/shared/interfaces/TeamMemberInterface';
 
-// selectors
-const { team } = storeToRefs(useLabsoftStore());
+// constants
+const team: TeamMemberInterface[] = [
+  { name: 'Daniel Correa', role: 'Director del Laboratorio' },
+  { name: 'Santiago Gomez', role: 'Desarrollador' },
+  { name: 'Laura Ortiz', role: 'Desarrolladora' },
+  { name: 'Jhon Fredy Alzate', role: 'Desarrollador' },
+  { name: 'Santiago Idárraga', role: 'Desarrollador' },
+  { name: 'Esteban Álvarez', role: 'Desarrollador' },
+  { name: 'Mateo Pineda', role: 'Desarrollador' },
+  { name: 'Juan Esteban Trujillo', role: 'Desarrollador' },
+];
 </script>
 
 <template>
