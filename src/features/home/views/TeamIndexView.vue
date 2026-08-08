@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // internal application code imports
 import PageHeading from '@/shared/components/PageHeading.vue';
-import type TeamMemberInterface from '@/shared/interfaces/TeamMemberInterface';
+import type TeamMemberInterface from '@/features/home/interfaces/TeamMemberInterface';
 
 // constants
 const team: TeamMemberInterface[] = [

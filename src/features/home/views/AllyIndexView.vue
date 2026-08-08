@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // internal application code imports
 import PageHeading from '@/shared/components/PageHeading.vue';
-import type AllyInterface from '@/shared/interfaces/AllyInterface';
+import type AllyInterface from '@/features/home/interfaces/AllyInterface';
 
 // constants
 const allies: AllyInterface[] = [

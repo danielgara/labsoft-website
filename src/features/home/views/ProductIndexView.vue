@@ -1,17 +1,21 @@
 <script setup lang="ts">
 // internal application code imports
 import PageHeading from '@/shared/components/PageHeading.vue';
-import type ProductInterface from '@/shared/interfaces/ProductInterface';
+import type ProductInterface from '@/features/home/interfaces/ProductInterface';
 
 // constants
 const products: ProductInterface[] = [
   {
-    name: 'DensURBAM',
+    name: 'DensUrbam',
     description: 'Plataforma de gestión de capacidad de soporte de los territorios.',
   },
   {
-    name: 'Clasificados',
-    description: 'Plataforma de clasificados de la comunidad EAFIT.',
+    name: 'Random Students',
+    description: 'Herramienta para selección aleatoria de estudiantes.',
+  },
+  {
+    name: 'Movilidad EAFIT (en construcción)',
+    description: 'Plataforma de gestión de movilidad de la escuela de Ciencias Aplicadas e Ingeniería de EAFIT.',
   },
 ];
 </script>
