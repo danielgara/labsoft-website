@@ -3,9 +3,6 @@
 **SPA/CSR** application for Universidad EAFIT's Software Lab, built with
 Vue 3, Vue Router, TypeScript, Vite, and Tailwind CSS v4.
 
-The project was regenerated with `npm create vue@latest` following _Tutorial 03 – SPA/CSR with Vue.js_,
-so its structure matches the other Vue projects in the course.
-
 ## Stack
 
 | Tool            | Role                                                     |
