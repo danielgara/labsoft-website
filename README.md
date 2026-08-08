@@ -74,18 +74,22 @@ src/
 │   ├── css/input.css           # Tailwind v4: @theme, @utility y estilos base
 │   └── Labsoft-Icon.png        # Logo: favicon y marca del header
 ├── features/
-│   └── home/views/             # El sitio es un solo dominio: la portada y sus secciones
-│       ├── HomeView.vue        # Hero y tarjetas de la portada
-│       ├── TeamIndexView.vue
-│       ├── ProductIndexView.vue
-│       ├── AllyIndexView.vue
-│       └── NotFoundView.vue
+│   └── home/                   # El sitio es un solo dominio: la portada y sus secciones
+│       ├── interfaces/         # Tipos del contenido (equipo, productos, aliados)
+│       │   ├── AllyInterface.ts
+│       │   ├── ProductInterface.ts
+│       │   └── TeamMemberInterface.ts
+│       └── views/
+│           ├── HomeView.vue    # Hero y tarjetas de la portada
+│           ├── TeamIndexView.vue
+│           ├── ProductIndexView.vue
+│           ├── AllyIndexView.vue
+│           └── NotFoundView.vue
 └── shared/                     # Transversal a varias features
-    ├── components/
-    │   ├── AppHeader.vue       # Navegación de escritorio y menú móvil
-    │   ├── AppButton.vue       # variant="primary" | "secondary"; con `to` es un RouterLink
-    │   └── PageHeading.vue     # Título tomado de meta.title de la ruta
-    └── interfaces/             # Tipos del contenido (equipo, productos, aliados)
+    └── components/
+        ├── AppHeader.vue       # Navegación de escritorio y menú móvil
+        ├── AppButton.vue       # variant="primary" | "secondary"; con `to` es un RouterLink
+        └── PageHeading.vue     # Título tomado de meta.title de la ruta
 ```
 
 Aún no hay `services/` ni `stores/`: el sitio no consume una API y su contenido es estático, así
