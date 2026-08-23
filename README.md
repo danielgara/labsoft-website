@@ -55,8 +55,6 @@ The app runs at http://localhost:5173.
 Each route defines `meta.title`, which the router uses to update the document title.
 All views except `HomeView` are lazy-loaded (code splitting).
 
-Allies no longer have a route of their own: they are a section of the landing page.
-
 ## Structure
 
 Code is organized by _features_ (`app` / `features` / `shared`), same as the other
@@ -106,15 +104,6 @@ so each view declares its data as a typed array. There is no state shared across
 Only reusable pieces or components with their own logic are extracted. Cards are Tailwind
 markup written directly in each view: they are four different variants of the same idea, and a
 single shared component would have needed more props than template lines.
-
-Composables are not covered by the lab's folder rules, so they follow Vue's official convention:
-`use<Something>()` under `shared/composables/`, the equivalent of a `utils/` folder for logic that
-carries reactive state and lifecycle.
-
-> **Placeholder content.** These values are examples and must be replaced with real data before
-> publishing: the semesters in `TeamIndexView.vue`; the long descriptions, years, and technologies
-> in `ProductIndexView.vue`; the `collaboration` field in `HomeAllies.vue`; and the copy in
-> `HomeCapabilities.vue` and `HomeProcess.vue`.
 
 ## Design system
 

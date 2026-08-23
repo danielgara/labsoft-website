@@ -7,5 +7,4 @@ export default interface ProductInterface {
   users: string;
   focus: string;
   icon: string;
-  url?: string;
 }
