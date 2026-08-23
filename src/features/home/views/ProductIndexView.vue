@@ -6,34 +6,34 @@ import type ProductInterface from '@/features/home/interfaces/ProductInterface';
 // constants
 const products: ProductInterface[] = [
   {
-    name: 'DensURBAM',
+    name: 'Densurbam',
     summary: 'Plataforma de gestión de capacidad de soporte de los territorios.',
     description:
-      'Herramienta de análisis territorial que cruza información de densidad, servicios públicos y equipamientos para estimar cuánta población puede sostener una zona. La usan equipos de planeación para sustentar decisiones de ordenamiento con datos y no con intuición.',
-    status: 'En producción',
-    year: '2023',
-    technologies: ['Vue', 'Django', 'PostGIS', 'Leaflet'],
+      'Sistema de análisis territorial desarrollado por el Centro de Estudios Urbanos y Ambientales (Urbam) de la Universidad EAFIT. Permite analizar las capacidades de soporte de una ciudad-territorio, teniendo en cuenta criterios estratégicos de sostenibilidad de naturaleza ambiental o urbana.',
+    responsibleArea: 'Centro de Estudios Urbanos y Ambientales, Urbam',
+    users: 'Equipos de planeación e investigación',
+    focus: 'Análisis territorial y sostenibilidad',
     icon: 'fas fa-map-location-dot',
   },
   {
-    name: 'Clasificados',
-    summary: 'Plataforma de clasificados de la comunidad EAFIT.',
-    description:
-      'Espacio donde estudiantes, profesores y egresados publican y encuentran productos y servicios dentro de la comunidad universitaria. Incluye moderación de publicaciones, búsqueda por categorías y verificación con la cuenta institucional.',
-    status: 'En producción',
-    year: '2024',
-    technologies: ['Vue', 'Django REST', 'PostgreSQL'],
-    icon: 'fas fa-tags',
-  },
-  {
-    name: 'Movilidad',
+    name: 'Movilidades (en construcción)',
     summary: 'Gestión de solicitudes de movilidad académica internacional.',
     description:
       'Sistema que acompaña una solicitud de movilidad de principio a fin: registro del participante, presupuesto asociado, revisión por parte de los gestores y seguimiento del estado. Reemplaza el flujo que antes vivía en correos y hojas de cálculo.',
-    status: 'En desarrollo',
-    year: '2025',
-    technologies: ['Vue', 'Django', 'Docker'],
+    responsibleArea: 'Área Administrativa',
+    users: 'Profesores y gestores de movilidad',
+    focus: 'Gestión de solicitudes',
     icon: 'fas fa-plane-departure',
+  },
+  {
+    name: 'Random Students',
+    summary: 'Herramienta para selección aleatoria de estudiantes.',
+    description:
+      'Permite a los profesores seleccionar estudiantes de forma aleatoria para actividades académicas, ejercicios y participación en clase.',
+    responsibleArea: 'Comunidad docente de EAFIT',
+    users: 'Profesores',
+    focus: 'Gestión de actividades académicas',
+    icon: 'fas fa-shuffle',
   },
 ];
 </script>
@@ -49,7 +49,7 @@ const products: ProductInterface[] = [
       <li
         v-for="(product, index) in products"
         :key="product.name"
-        class="glass grid gap-8 rounded-3xl p-8 md:grid-cols-[auto_1fr_auto] md:p-10"
+        class="glass grid gap-8 rounded-3xl p-8 md:grid-cols-[auto_1fr] md:p-10"
       >
         <div class="flex items-start gap-6">
           <p class="font-mono text-sm text-white/25">
@@ -63,43 +63,30 @@ const products: ProductInterface[] = [
           </div>
         </div>
 
-        <div class="max-w-2xl">
+        <div class="min-w-0 max-w-5xl">
           <h3 class="mb-2 text-2xl font-bold tracking-tight">{{ product.name }}</h3>
-          <p class="mb-5 leading-relaxed text-white/60">{{ product.description }}</p>
+          <p class="mb-5 max-w-3xl leading-relaxed text-white/60">{{ product.description }}</p>
 
-          <ul class="flex flex-wrap gap-2">
-            <li
-              v-for="technology in product.technologies"
-              :key="technology"
-              class="rounded-lg border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/50"
-            >
-              {{ technology }}
-            </li>
-          </ul>
-        </div>
-
-        <div class="flex flex-row items-center gap-4 md:flex-col md:items-end md:gap-3">
-          <span
-            class="rounded-full px-3 py-1 text-xs font-semibold"
-            :class="
-              product.status === 'En producción'
-                ? 'bg-emerald-500/15 text-emerald-400'
-                : 'bg-blue-500/15 text-blue-400'
-            "
-          >
-            {{ product.status }}
-          </span>
-          <span class="text-sm text-white/30">Desde {{ product.year }}</span>
-          <a
-            v-if="product.url"
-            :href="product.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm font-semibold text-emerald-400 transition-colors hover:text-emerald-300"
-          >
-            Visitar
-            <i class="fas fa-arrow-up-right-from-square ml-1 text-xs" aria-hidden="true"></i>
-          </a>
+          <dl class="mb-6 grid gap-5 text-sm sm:grid-cols-2 lg:grid-cols-3">
+            <div>
+              <dt class="mb-1 text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+                Área responsable
+              </dt>
+              <dd class="text-white/60">{{ product.responsibleArea }}</dd>
+            </div>
+            <div>
+              <dt class="mb-1 text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+                Usuarios
+              </dt>
+              <dd class="text-white/60">{{ product.users }}</dd>
+            </div>
+            <div>
+              <dt class="mb-1 text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+                Enfoque
+              </dt>
+              <dd class="text-white/60">{{ product.focus }}</dd>
+            </div>
+          </dl>
         </div>
       </li>
     </ol>

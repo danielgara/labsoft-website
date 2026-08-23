@@ -5,24 +5,24 @@ import BackgroundHeatmap from '@/features/home/components/decorations/Background
 // constants
 const steps = [
   {
-    title: 'Entendemos la necesidad',
+    title: 'Conversamos sobre la necesidad',
     description:
-      'Nos sentamos con el área a mapear el proceso actual, quién participa y dónde se pierde el tiempo hoy.',
+      'Cuando un área identifica una necesidad, nos reunimos con la persona encargada para conocer el problema y evaluar posibles alternativas.',
   },
   {
-    title: 'Diseñamos y prototipamos',
+    title: 'Diseñamos la solución',
     description:
-      'Proponemos un alcance corto y una primera versión navegable para validar antes de escribir el sistema completo.',
+      'Según el problema, elaboramos prototipos y definimos aspectos técnicos como la arquitectura y el modelo de datos antes de desarrollar.',
   },
   {
-    title: 'Construimos por entregas',
+    title: 'Desarrollamos el proyecto',
     description:
-      'Desarrollamos en ciclos cortos con revisiones de código, para que el área vea avances y pueda corregir el rumbo.',
+      'Construimos la solución hasta completar el proyecto, revisando periódicamente los avances con el área de acuerdo con la disponibilidad de ambas partes.',
   },
   {
-    title: 'Operamos y evolucionamos',
+    title: 'Evaluamos y mejoramos',
     description:
-      'Acompañamos la puesta en producción y seguimos atendiendo el producto mientras esté en uso.',
+      'Acompañamos la puesta en producción cuando es necesario y capacitamos al equipo para utilizar correctamente el software.',
   },
 ];
 </script>
@@ -32,8 +32,8 @@ const steps = [
     <div class="mx-auto max-w-2xl text-center">
       <h2 class="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Cómo trabajamos</h2>
       <p class="mb-16 leading-relaxed text-white/60">
-        Un recorrido corto y repetible, pensado para que un equipo que rota cada semestre pueda
-        sostener productos que llevan años en producción.
+        Partimos de una conversación con el área, analizamos el problema y desarrollamos una
+        solución de software que responda a sus necesidades.
       </p>
     </div>
 

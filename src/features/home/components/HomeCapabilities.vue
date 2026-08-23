@@ -10,23 +10,15 @@ const capabilities = [
     tile: 'bg-emerald-500/10',
     title: 'Desarrollo a la medida',
     description:
-      'Construimos plataformas web para procesos que hoy viven en correos y hojas de cálculo, con el flujo y las reglas propias de cada área.',
-  },
-  {
-    icon: 'fas fa-chart-simple',
-    iconColor: 'text-blue-400',
-    tile: 'bg-blue-500/10',
-    title: 'Análisis de datos',
-    description:
-      'Modelamos y visualizamos la información que ya existe en la Universidad para que las decisiones se sustenten en evidencia.',
+      'Desarrollamos soluciones para la gestión académica y transformamos procesos manuales en herramientas digitales adaptadas a cada área.',
   },
   {
     icon: 'fas fa-arrows-rotate',
-    iconColor: 'text-purple-400',
-    tile: 'bg-purple-500/10',
+    iconColor: 'text-blue-400',
+    tile: 'bg-blue-500/10',
     title: 'Operación y mantenimiento',
     description:
-      'Un producto no termina cuando sale a producción: monitoreamos, corregimos y evolucionamos lo que ya está en uso.',
+      'Acompañamos la evolución de los proyectos para que las soluciones desarrolladas sigan respondiendo a las necesidades de las áreas.',
   },
   {
     icon: 'fas fa-graduation-cap',
@@ -34,7 +26,15 @@ const capabilities = [
     tile: 'bg-emerald-500/10',
     title: 'Formación de estudiantes',
     description:
-      'Cada semestre entra un grupo nuevo que trabaja sobre software real, con revisiones de código y prácticas de ingeniería.',
+      'Los estudiantes aportan al desarrollo de proyectos y fortalecen sus habilidades trabajando con necesidades y retos reales.',
+  },
+  {
+    icon: 'fas fa-pen-ruler',
+    iconColor: 'text-purple-400',
+    tile: 'bg-purple-500/10',
+    title: 'Análisis y prototipado',
+    description:
+      'Nos reunimos con cada área para entender su necesidad, diseñar prototipos y validar la solución antes de desarrollarla.',
   },
 ];
 </script>
@@ -44,8 +44,8 @@ const capabilities = [
     <div class="mx-auto max-w-2xl text-center">
       <h2 class="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Qué hacemos</h2>
       <p class="mb-16 leading-relaxed text-white/60">
-        El laboratorio funciona como un equipo de producto dentro de la Universidad: recibimos una
-        necesidad de un área y la acompañamos hasta que hay software funcionando.
+        Trabajamos junto a las áreas de la Universidad para entender sus necesidades, diseñar
+        soluciones y convertir sus procesos en herramientas digitales.
       </p>
     </div>
 
@@ -56,10 +56,10 @@ const capabilities = [
         <article
           v-for="capability in capabilities"
           :key="capability.title"
-          class="glass rounded-3xl p-8"
+          class="glass rounded-3xl p-8 text-center"
         >
           <div
-            class="mb-6 flex h-12 w-12 items-center justify-center rounded-xl"
+            class="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-xl"
             :class="capability.tile"
             aria-hidden="true"
           >

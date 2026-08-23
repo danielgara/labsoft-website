@@ -10,12 +10,12 @@ const direction: TeamMemberInterface[] = [
 ];
 
 const team: TeamMemberInterface[] = [
-  { name: 'Santiago Gomez', role: 'Desarrollador', semester: '2025-2' },
-  { name: 'Laura Ortiz', role: 'Desarrolladora', semester: '2025-2' },
+  { name: 'Santiago Gomez', role: 'Desarrollador', semester: '2026-1' },
+  { name: 'Laura Ortiz', role: 'Desarrolladora', semester: '2026-1' },
   { name: 'Jhon Fredy Alzate', role: 'Desarrollador', semester: '2026-1' },
-  { name: 'Santiago Idárraga', role: 'Desarrollador', semester: '2026-1' },
-  { name: 'Esteban Álvarez', role: 'Desarrollador', semester: '2026-2' },
   { name: 'Mateo Pineda', role: 'Desarrollador', semester: '2026-2' },
+  { name: 'Santiago Idárraga', role: 'Desarrollador', semester: '2026-2' },
+  { name: 'Esteban Álvarez', role: 'Desarrollador', semester: '2026-2' },
   { name: 'Juan Esteban Trujillo', role: 'Desarrollador', semester: '2026-2' },
 ];
 
@@ -38,13 +38,14 @@ function initials(name: string): string {
 function isRightSide(index: number): boolean {
   return index % 2 === 1;
 }
+
 </script>
 
 <template>
   <section class="reveal-source relative mx-auto max-w-7xl px-6 pt-32 pb-24">
     <PageHeading
       centered
-      subtitle="El laboratorio se renueva cada semestre, pero su dirección se mantiene. Abajo, la historia del equipo leída como un árbol de ramas: el tronco nunca se corta y cada semestre sale de él."
+      subtitle="Cada semestre se suman nuevos desarrolladores al laboratorio, guiados por una dirección que mantiene la continuidad de los proyectos y del equipo."
     />
 
     <div class="mb-20 border-b border-white/10 pb-14">
@@ -90,7 +91,13 @@ function isRightSide(index: number): boolean {
       >
         <TeamBranch :side="isRightSide(index) ? 'right' : 'left'" />
 
-        <div :class="isRightSide(index) ? 'md:col-start-2' : 'md:col-start-1 md:text-right'">
+        <div
+          :class="
+            isRightSide(index)
+              ? 'md:col-start-2 md:translate-x-6'
+              : 'md:col-start-1 md:-translate-x-6 md:text-right'
+          "
+        >
           <header class="mb-6">
             <p
               class="mb-2 flex items-center gap-2"
@@ -99,7 +106,6 @@ function isRightSide(index: number): boolean {
               <i class="fas fa-code-branch text-xs text-emerald-400/70" aria-hidden="true"></i>
               <span class="font-mono text-sm text-emerald-400/70">semestre/{{ semester }}</span>
             </p>
-            <h3 class="text-2xl font-bold tracking-tight">{{ semester }}</h3>
             <p class="text-sm text-white/40">
               {{ membersBySemester(semester).length }} integrantes
             </p>
@@ -107,7 +113,7 @@ function isRightSide(index: number): boolean {
 
           <div class="flex flex-wrap gap-4" :class="isRightSide(index) ? '' : 'md:justify-end'">
             <article
-              v-for="member in membersBySemester(semester)"
+              v-for="(member, memberIndex) in membersBySemester(semester)"
               :key="member.name"
               class="glass-hover reveal-on-scroll w-[calc(50%-0.5rem)] rounded-2xl p-3.5 text-center sm:w-44"
             >

@@ -53,9 +53,9 @@ const { isPlaying } = useHeroVideo(video);
       </h1>
 
       <p class="mb-10 max-w-2xl text-lg leading-relaxed text-white/70">
-        Somos un equipo de profesores, administrativos y estudiantes de EAFIT que diseña, construye
-        y mantiene las plataformas que usan las áreas de la Universidad. Cada producto nace de una
-        necesidad real y se sostiene en el tiempo.
+        Somos un equipo de profesores y estudiantes de EAFIT que diseña, construye y mantiene las
+        plataformas que usan las áreas de la Universidad. Transformamos necesidades reales de la Universidad en soluciones de software.
+
       </p>
 
       <div class="flex flex-wrap gap-4">
