@@ -1,29 +1,26 @@
-# LabSoft — Sitio web
+# LabSoft — Website
 
-Aplicación **SPA/CSR** del Laboratorio de Software de la Universidad EAFIT, construida con
-Vue 3, Vue Router, TypeScript, Vite y Tailwind CSS v4.
-
-El proyecto fue regenerado con `npm create vue@latest` siguiendo el _Tutorial 03 – SPA/CSR con Vue.js_,
-para que la estructura coincida con la de los demás proyectos Vue del curso.
+**SPA/CSR** application for Universidad EAFIT's Software Lab, built with
+Vue 3, Vue Router, TypeScript, Vite, and Tailwind CSS v4.
 
 ## Stack
 
-| Herramienta     | Uso                                                    |
-| --------------- | ------------------------------------------------------ |
-| Vue 3           | Framework de UI (Composition API + `<script setup>`)   |
-| Vue Router      | Enrutamiento del lado del cliente                      |
-| TypeScript      | Tipado estático                                        |
-| Vite            | Servidor de desarrollo y bundler                       |
-| Tailwind CSS v4 | Estilos (configurado en CSS, sin `tailwind.config.js`) |
-| ESLint + oxlint | Calidad de código                                      |
-| Prettier        | Formateo                                               |
-| Font Awesome 6  | Iconos (vía CDN en `index.html`)                       |
+| Tool            | Role                                                     |
+| --------------- | -------------------------------------------------------- |
+| Vue 3           | UI framework (Composition API + `<script setup>`)        |
+| Vue Router      | Client-side routing                                      |
+| TypeScript      | Static typing                                            |
+| Vite            | Dev server and bundler                                   |
+| Tailwind CSS v4 | Styles (configured in CSS, no `tailwind.config.js`)      |
+| ESLint + oxlint | Code quality                                             |
+| Prettier        | Formatting                                               |
+| Font Awesome 6  | Icons (via CDN in `index.html`)                          |
 
-## Requisitos
+## Requirements
 
-Node.js `^22.18.0` o `>=24.12.0`.
+Node.js `^22.18.0` or `>=24.12.0`.
 
-## Puesta en marcha
+## Getting started
 
 ```bash
 npm install
@@ -33,79 +30,143 @@ npm install
 npm run dev
 ```
 
-La aplicación queda en http://localhost:5173.
+The app runs at http://localhost:5173.
 
 ## Scripts
 
-| Comando              | Qué hace                            |
-| -------------------- | ----------------------------------- |
-| `npm run dev`        | Servidor de desarrollo con HMR      |
-| `npm run build`      | Verifica tipos y compila a `dist/`  |
-| `npm run preview`    | Sirve la build de producción        |
-| `npm run type-check` | Verificación de tipos con `vue-tsc` |
-| `npm run lint`       | oxlint + ESLint (con `--fix`)       |
-| `npm run format`     | Formatea `src/` con Prettier        |
+| Command              | What it does                         |
+| -------------------- | ------------------------------------ |
+| `npm run dev`        | Dev server with HMR                  |
+| `npm run build`      | Type-checks and builds to `dist/`    |
+| `npm run preview`    | Serves the production build          |
+| `npm run type-check` | Type checking with `vue-tsc`         |
+| `npm run lint`       | oxlint + ESLint (with `--fix`)      |
+| `npm run format`     | Formats `src/` with Prettier         |
 
-## Rutas
+## Routes
 
-| Ruta          | Nombre          | Vista              |
+| Path          | Name            | View               |
 | ------------- | --------------- | ------------------ |
 | `/`           | `home.index`    | `HomeView`         |
 | `/equipo`     | `home.team`     | `TeamIndexView`    |
 | `/productos`  | `home.products` | `ProductIndexView` |
-| `/aliados`    | `home.allies`   | `AllyIndexView`    |
 | `/:pathMatch` | `home.notFound` | `NotFoundView`     |
 
-Cada ruta define `meta.title`, que el router usa para actualizar el título del documento.
-Todas las vistas salvo `HomeView` se cargan de forma diferida (code splitting).
+Each route defines `meta.title`, which the router uses to update the document title.
+All views except `HomeView` are lazy-loaded (code splitting).
 
-## Estructura
+Allies no longer have a route of their own: they are a section of the landing page.
 
-El código se organiza por _features_ (`app` / `features` / `shared`), igual que los demás
-proyectos Vue del curso.
+## Structure
+
+Code is organized by _features_ (`app` / `features` / `shared`), same as the other
+Vue projects in the course.
 
 ```
 src/
-├── app/                        # Arranque y cableado de la aplicación
-│   ├── App.vue                 # Layout: fondo, header, <RouterView/> y footer
-│   ├── main.ts                 # Punto de entrada (monta la app y el Router)
-│   └── router.ts               # Definición de rutas y títulos
+├── app/                        # App bootstrap and wiring
+│   ├── App.vue                 # Layout: background, header, <RouterView/>, and footer
+│   ├── main.ts                 # Entry point (mounts the app and the Router)
+│   └── router.ts               # Route definitions and titles
 ├── assets/
-│   ├── css/input.css           # Tailwind v4: @theme, @utility y estilos base
-│   └── Labsoft-Icon.png        # Logo: favicon y marca del header
+│   ├── css/input.css           # Tailwind v4: @theme, @utility, and base styles
+│   ├── video/hero.mp4          # Hero background
+│   └── Labsoft-Icon.png        # Logo: favicon and header brand
 ├── features/
-│   └── home/views/             # El sitio es un solo dominio: la portada y sus secciones
-│       ├── HomeView.vue        # Hero y tarjetas de la portada
-│       ├── TeamIndexView.vue
-│       ├── ProductIndexView.vue
-│       ├── AllyIndexView.vue
-│       └── NotFoundView.vue
-└── shared/                     # Transversal a varias features
+│   └── home/                   # Single domain: landing page and its sections
+│       ├── components/         # Landing page sections
+│       │   ├── HomeHero.vue / HomeCapabilities.vue / HomeProcess.vue / HomeAllies.vue
+│       │   └── decorations/    # Ambience only: aria-hidden and pointer-events-none
+│       │       ├── BackgroundShell.vue      # Terminal typed by the scroll
+│       │       ├── BackgroundHeatmap.vue    # Activity grid
+│       │       ├── BackgroundBranches.vue   # Branch graph
+│       │       └── TeamBranch.vue           # One semester's branch in the timeline
+│       ├── interfaces/         # Content types (team, products, allies)
+│       │   ├── AllyInterface.ts
+│       │   ├── ProductInterface.ts
+│       │   └── TeamMemberInterface.ts
+│       └── views/
+│           ├── HomeView.vue            # Composes the landing sections
+│           ├── TeamIndexView.vue       # Vertical timeline read as a branch history
+│           ├── ProductIndexView.vue    # Wide rows with status and stack
+│           └── NotFoundView.vue
+└── shared/                     # Cross-cutting across features
     ├── components/
-    │   ├── AppHeader.vue       # Navegación de escritorio y menú móvil
-    │   ├── AppButton.vue       # variant="primary" | "secondary"; con `to` es un RouterLink
-    │   └── PageHeading.vue     # Título tomado de meta.title de la ruta
-    └── interfaces/             # Tipos del contenido (equipo, productos, aliados)
+    │   ├── AppHeader.vue       # Desktop nav and mobile menu
+    │   ├── AppButton.vue       # variant="primary" | "secondary"; with `to` it is a RouterLink
+    │   └── PageHeading.vue     # Title from the route's meta.title; `centered` to center it
+    └── composables/
+        ├── useHeroVideo.ts     # Muted autoplay + prefers-reduced-motion
+        └── useScrolled.ts      # The header turns to glass on scroll
 ```
 
-Aún no hay `services/` ni `stores/`: el sitio no consume una API y su contenido es estático, así
-que cada vista declara sus datos como un arreglo tipado. No hay estado que compartir entre vistas.
+There are no `services/` or `stores/` yet: the site does not consume an API and its content is static,
+so each view declares its data as a typed array. There is no state shared across views.
 
-Solo se extrae a componente lo que se reutiliza entre vistas o tiene lógica propia. Las tarjetas
-son markup de Tailwind escrito directamente en cada vista: son cuatro variantes distintas de la
-misma idea y un componente único habría necesitado más props que líneas de plantilla.
+Only reusable pieces or components with their own logic are extracted. Cards are Tailwind
+markup written directly in each view: they are four different variants of the same idea, and a
+single shared component would have needed more props than template lines.
 
-## Sistema de diseño
+Composables are not covered by the lab's folder rules, so they follow Vue's official convention:
+`use<Something>()` under `shared/composables/`, the equivalent of a `utils/` folder for logic that
+carries reactive state and lifecycle.
 
-Los tokens y utilidades viven en `src/assets/css/input.css`. En Tailwind v4 el tema se declara
-en CSS con `@theme`, no en un archivo de configuración de JavaScript.
+> **Placeholder content.** These values are examples and must be replaced with real data before
+> publishing: the semesters in `TeamIndexView.vue`; the long descriptions, years, and technologies
+> in `ProductIndexView.vue`; the `collaboration` field in `HomeAllies.vue`; and the copy in
+> `HomeCapabilities.vue` and `HomeProcess.vue`.
 
-- **Colores**: `emerald-500` (primario), `blue-500` (acento), `purple-500` (secundario) sobre `slate-950`.
-- **Utilidades propias**: `glass`, `glass-hover`, `neon-glow`, `gradient-text`.
-- **Animaciones**: `animate-fade-in-up`, `animate-slide-in-left`, registradas como `--animate-*` en `@theme`.
+## Design system
 
-## Nota sobre el despliegue
+Tokens and utilities live in `src/assets/css/input.css`. In Tailwind v4 the theme is declared
+in CSS with `@theme`, not in a JavaScript config file.
 
-El router usa `createWebHistory`, así que el servidor debe reescribir todas las rutas hacia
-`index.html`. En Vite (`dev` y `preview`) esto ya funciona; en producción hay que configurarlo
-según el proveedor de hosting.
+- **Colors**: `emerald-500` (primary), `blue-500` (accent), `purple-500` (secondary) on `slate-950`.
+- **Custom utilities**: `glass`, `glass-hover`, `neon-glow`, `gradient-text`.
+- **Animations**: `animate-fade-in-up`, registered as `--animate-*` in `@theme`.
+
+### Scroll-driven animations
+
+Nothing here uses JavaScript: everything runs on CSS scroll and view timelines, off the main
+thread. Because the scroll position *is* the timeline cursor, scrolling back up rewinds the
+animation for free.
+
+`reveal-source` names the timeline the reveal utilities read. Put it on whichever element should
+drive them: a section for a background artefact, or a repeated block when each copy has to reveal
+as it crosses the viewport.
+
+| Utility            | Effect                                          |
+| ------------------ | ----------------------------------------------- |
+| `type-on-scroll`   | Types text character by character, with a caret |
+| `fade-on-scroll`   | Fades and scales an element in                  |
+| `grow-on-scroll`   | Grows a line vertically (`scaleY`)              |
+| `draw-on-scroll`   | Draws an SVG stroke (`stroke-dashoffset`)       |
+| `reveal-on-scroll` | Cards fade in on entry and out on exit          |
+| `blob-scroll`      | Background blobs tied to the page scroll        |
+
+Each element declares its own slice of the timeline through `--draw-from` and `--draw-to`, so the
+timing lives next to the element it animates.
+
+All of them sit inside `@supports` and `prefers-reduced-motion: no-preference`, and their **base
+state is the finished state**. Where view timelines are unsupported the content renders complete
+and still, never empty — inverting that would blank the page on those browsers.
+
+The blob layer in `App.vue` is `sticky`, not `fixed`: a fixed element sits outside the scroll tree
+and its timeline never activates. The negative margin keeps it from taking up space in the flow.
+
+## Hero background
+
+The hero loops `src/assets/video/hero.mp4`, muted and without controls. The logic lives in
+`useHeroVideo()`, not in the component:
+
+- Browsers only autoplay video that is muted and inline, and refuse when the tab starts hidden, so
+  the composable retries on `visibilitychange`.
+- A gradient layer covers the video until the first frame arrives. If autoplay is blocked, that
+  layer stays and the hero reads as an intentional gradient.
+- With `prefers-reduced-motion: reduce` the video never plays.
+
+## Deployment note
+
+The router uses `createWebHistory`, so the server must rewrite all routes to
+`index.html`. Vite (`dev` and `preview`) already does this; in production configure it
+according to your hosting provider.
