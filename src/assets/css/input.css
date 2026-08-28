@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-/* LabSoft design system tokens.
-   In Tailwind v4 the theme lives in CSS, not in tailwind.config.js. */
 @theme {
   --font-sans: system-ui, sans-serif;
 
@@ -9,7 +7,6 @@
   --color-foreground: #f1f5f9;
 
   --animate-fade-in-up: fadeInUp 0.35s ease-out forwards;
-  --animate-slide-in-left: slideInLeft 0.35s ease-out forwards;
 
   @keyframes fadeInUp {
     from {
@@ -19,17 +16,6 @@
     to {
       opacity: 1;
       transform: translateY(0);
-    }
-  }
-
-  @keyframes slideInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
     }
   }
 }
@@ -48,7 +34,6 @@
   @apply rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg;
 }
 
-/* Interactive variant: repeats the base glass rules on purpose, so it can be used alone. */
 @utility glass-hover {
   @apply rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg;
   @apply cursor-pointer transition-all duration-300 hover:border-white/30 hover:bg-white/20;
@@ -63,4 +48,155 @@
 
 @utility gradient-text {
   @apply bg-linear-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent;
+}
+
+@keyframes blobDrift {
+  to {
+    transform: translate3d(var(--blob-x, 0), var(--blob-y, 0), 0) scale(var(--blob-scale, 1));
+    opacity: var(--blob-opacity, 1);
+  }
+}
+
+@utility blob-scroll {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      animation: blobDrift linear both;
+      animation-timeline: scroll(root block);
+      will-change: transform, opacity;
+    }
+  }
+}
+
+@utility reveal-source {
+  view-timeline-name: --reveal;
+  view-timeline-axis: block;
+}
+
+@keyframes typeLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(var(--type-steps, 40) * 1ch);
+  }
+}
+
+@keyframes caretHide {
+  from {
+    border-right-color: var(--color-emerald-400);
+  }
+  92% {
+    border-right-color: var(--color-emerald-400);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+@utility type-on-scroll {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid transparent;
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation:
+        typeLine steps(var(--type-steps, 40)) both,
+        caretHide linear both;
+      animation-timeline: --reveal, --reveal;
+      animation-range:
+        cover var(--draw-from, 0%) cover var(--draw-to, 60%),
+        cover var(--draw-from, 0%) cover var(--draw-to, 60%);
+    }
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pathDraw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@utility fade-on-scroll {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: fadeUp linear both;
+      animation-timeline: --reveal;
+      animation-range: cover var(--draw-from, 0%) cover var(--draw-to, 60%);
+    }
+  }
+}
+
+@utility grow-on-scroll {
+  transform-origin: top;
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: lineGrow linear both;
+      animation-timeline: --reveal;
+      animation-range: cover var(--draw-from, 0%) cover var(--draw-to, 60%);
+    }
+  }
+}
+
+@utility draw-on-scroll {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: pathDraw linear both;
+      animation-timeline: --reveal;
+      animation-range: cover var(--draw-from, 0%) cover var(--draw-to, 60%);
+    }
+  }
+}
+
+@keyframes cardReveal {
+  entry 0% {
+    opacity: 0;
+    transform: translateY(2.5rem) scale(0.96);
+  }
+  entry 100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  exit 0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  exit 100% {
+    opacity: 0;
+    transform: translateY(-1.5rem) scale(0.98);
+  }
+}
+
+@utility reveal-on-scroll {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: cardReveal linear both;
+      animation-timeline: view();
+      will-change: transform, opacity;
+    }
+  }
 }

@@ -29,19 +29,17 @@ const router = createRouter({
       meta: { title: 'Productos' },
     },
     {
-      path: '/aliados',
-      name: 'home.allies',
-      component: () => import('@/features/home/views/AllyIndexView.vue'),
-      meta: { title: 'Aliados' },
-    },
-    {
       path: '/:pathMatch(.*)*',
       name: 'home.notFound',
       component: () => import('@/features/home/views/NotFoundView.vue'),
       meta: { title: 'Página no encontrada' },
     },
   ],
-  scrollBehavior() {
+  scrollBehavior(to) {
+    if (to.hash) {
+      return { el: to.hash, behavior: 'smooth' };
+    }
+
     return { top: 0 };
   },
 });

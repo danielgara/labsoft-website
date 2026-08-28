@@ -7,6 +7,7 @@ import { useRoute } from 'vue-router';
 type Props = {
   title?: string;
   subtitle?: string;
+  centered?: boolean;
 };
 
 // props
@@ -20,10 +21,16 @@ const heading = computed(() => props.title ?? route.meta.title);
 </script>
 
 <template>
-  <header class="mb-12">
+  <header class="mb-12" :class="{ 'text-center': centered }">
     <h2 class="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
       <span class="gradient-text">{{ heading }}</span>
     </h2>
-    <p v-if="subtitle" class="max-w-2xl leading-relaxed text-white/60">{{ subtitle }}</p>
+    <p
+      v-if="subtitle"
+      class="max-w-2xl leading-relaxed text-white/60"
+      :class="{ 'mx-auto': centered }"
+    >
+      {{ subtitle }}
+    </p>
   </header>
 </template>
