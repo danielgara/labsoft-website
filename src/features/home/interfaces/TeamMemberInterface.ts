@@ -4,4 +4,6 @@ export default interface TeamMemberInterface {
   role: string;
   semester?: string;
   photo?: string;
+  link?: string;
+  linkName?: string;
 }

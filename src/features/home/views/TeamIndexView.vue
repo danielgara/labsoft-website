@@ -8,7 +8,13 @@ import danielPhoto from '@/assets/images/daniel.jpg';
 
 // constants
 const direction: TeamMemberInterface[] = [
-  { name: 'Daniel Correa', role: 'Director del Laboratorio', photo: danielPhoto },
+  {
+    name: 'Daniel Correa',
+    role: 'Director del Laboratorio',
+    photo: danielPhoto,
+    link: 'https://github.com/danielgara',
+    linkName: 'GitHub',
+  },
 ];
 
 const team: TeamMemberInterface[] = [
@@ -86,6 +92,15 @@ function isRightSide(index: number): boolean {
           <div>
             <h4 class="text-lg leading-tight font-bold">{{ member.name }}</h4>
             <p class="mt-1 text-sm text-white/50">{{ member.role }}</p>
+            <a
+              v-if="member.link"
+              :href="member.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-3 inline-flex items-center gap-2 rounded-xl bg-emerald-500/10 px-3 py-1.5 text-sm font-medium text-emerald-400 transition-colors hover:bg-emerald-500/20"
+            >
+              {{ member.linkName }}
+            </a>
           </div>
         </article>
       </div>
@@ -141,6 +156,15 @@ function isRightSide(index: number): boolean {
 
               <h4 class="text-base leading-tight font-semibold">{{ member.name }}</h4>
               <p class="mt-1 text-sm leading-tight text-white/50">{{ member.role }}</p>
+              <a
+                v-if="member.link"
+                :href="member.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-400 transition-colors hover:bg-emerald-500/20"
+              >
+                {{ member.linkName }}
+              </a>
             </article>
           </div>
         </div>
