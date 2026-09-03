@@ -1,5 +1,5 @@
 // external libraries imports
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 // internal application code imports
 import HomeView from '@/features/home/views/HomeView.vue';
@@ -13,7 +13,7 @@ declare module 'vue-router' {
 
 // main code execution
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', name: 'home.index', component: HomeView, meta: { title: 'Inicio' } },
     {

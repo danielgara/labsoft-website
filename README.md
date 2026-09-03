@@ -156,6 +156,5 @@ The hero loops `src/assets/video/hero.mp4`, muted and without controls. The logi
 
 ## Deployment note
 
-The router uses `createWebHistory`, so the server must rewrite all routes to
-`index.html`. Vite (`dev` and `preview`) already does this; in production configure it
-according to your hosting provider.
+The router uses `createWebHashHistory`, so routes live after `#` (e.g. `/#/equipo`).
+Any static host can serve `dist/` as-is — no server rewrite is required for deep links.
