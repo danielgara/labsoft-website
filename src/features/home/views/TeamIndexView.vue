@@ -3,13 +3,21 @@
 import TeamBranch from '@/features/home/components/decorations/TeamBranch.vue';
 import PageHeading from '@/shared/components/PageHeading.vue';
 import type TeamMemberInterface from '@/features/home/interfaces/TeamMemberInterface';
+import manuelaPhoto from '@/assets/images/manuela.jpeg';
+import danielPhoto from '@/assets/images/daniel.jpg';
 
 // constants
 const direction: TeamMemberInterface[] = [
-  { name: 'Daniel Correa', role: 'Director del Laboratorio' },
+  { name: 'Daniel Correa', role: 'Director del Laboratorio', photo: danielPhoto },
 ];
 
 const team: TeamMemberInterface[] = [
+  {
+    name: 'Manuela Castaño Franco',
+    role: 'Desarrolladora',
+    semester: '2025-2',
+    photo: manuelaPhoto,
+  },
   { name: 'Santiago Gomez', role: 'Desarrollador', semester: '2026-1' },
   { name: 'Laura Ortiz', role: 'Desarrolladora', semester: '2026-1' },
   { name: 'Jhon Fredy Alzate', role: 'Desarrollador', semester: '2026-1' },
