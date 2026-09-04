@@ -59,10 +59,10 @@ const team: TeamMemberInterface[] = [
   {
     name: 'Juan Esteban Trujillo',
     role: 'Desarrollador',
-    semester: '2026-2',
     photo: juanPhoto,
-    link: 'https://juantrujillom.github.io',
-    linkName: 'Portafolio',
+    link: 'https://github.com/JuanTrujilloM',
+    linkName: 'GitHub',
+    semester: '2026-2',
   },
 ];
 
