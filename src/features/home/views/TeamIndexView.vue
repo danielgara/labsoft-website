@@ -5,6 +5,7 @@ import PageHeading from '@/shared/components/PageHeading.vue';
 import type TeamMemberInterface from '@/features/home/interfaces/TeamMemberInterface';
 import manuelaPhoto from '@/assets/images/manuela.jpeg';
 import danielPhoto from '@/assets/images/daniel.jpg';
+import juanPhoto from '@/assets/images/juan.jpg';
 import alejandroPhoto from '@/assets/images/alejandro.jpg';
 
 // constants
@@ -55,7 +56,14 @@ const team: TeamMemberInterface[] = [
   { name: 'Mateo Pineda', role: 'Desarrollador', semester: '2026-2' },
   { name: 'Santiago Idárraga', role: 'Desarrollador', semester: '2026-2' },
   { name: 'Esteban Álvarez', role: 'Desarrollador', semester: '2026-2' },
-  { name: 'Juan Esteban Trujillo', role: 'Desarrollador', semester: '2026-2' },
+  {
+    name: 'Juan Esteban Trujillo',
+    role: 'Desarrollador',
+    photo: juanPhoto,
+    link: 'https://github.com/JuanTrujilloM',
+    linkName: 'GitHub',
+    semester: '2026-2',
+  },
 ];
 
 const termList = [...new Set(team.flatMap((member) => member.semester ?? []))].sort().reverse();
