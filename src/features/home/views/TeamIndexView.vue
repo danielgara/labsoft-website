@@ -6,6 +6,7 @@ import type TeamMemberInterface from '@/features/home/interfaces/TeamMemberInter
 import manuelaPhoto from '@/assets/images/manuela.jpeg';
 import danielPhoto from '@/assets/images/daniel.jpg';
 import juanPhoto from '@/assets/images/juan.jpg';
+import alejandroPhoto from '@/assets/images/alejandro.jpg';
 
 // constants
 const direction: TeamMemberInterface[] = [
@@ -19,6 +20,30 @@ const direction: TeamMemberInterface[] = [
 ];
 
 const team: TeamMemberInterface[] = [
+  {
+    name: 'Alejandro Ríos Muñoz',
+    role: 'Desarrollador',
+    photo: alejandroPhoto,
+    link: 'https://github.com/alejoriosm04',
+    linkName: 'GitHub',
+    semester: '2024-2'
+  },
+  {
+    name: 'Alejandro Ríos Muñoz',
+    role: 'Líder de Desarrollo',
+    photo: alejandroPhoto,
+    link: 'https://github.com/alejoriosm04',
+    linkName: 'GitHub',
+    semester: '2025-1'
+  },
+  {
+    name: 'Alejandro Ríos Muñoz',
+    role: 'Líder de Desarrollo',
+    photo: alejandroPhoto,
+    link: 'https://github.com/alejoriosm04',
+    linkName: 'GitHub',
+    semester: '2025-2'
+  },
   {
     name: 'Manuela Castaño Franco',
     role: 'Desarrolladora',
