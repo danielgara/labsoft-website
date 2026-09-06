@@ -8,6 +8,7 @@ import danielPhoto from '@/assets/images/daniel.jpg';
 import juanPhoto from '@/assets/images/juan.jpg';
 import alejandroPhoto from '@/assets/images/alejandro.jpg';
 import santiagoPhoto from '@/assets/images/santiago.jpg';
+import santiagogPhoto from '@/assets/images/santiagog.jpeg';
 
 // constants
 const direction: TeamMemberInterface[] = [
@@ -59,7 +60,14 @@ const team: TeamMemberInterface[] = [
     linkName: 'GitHub',
     semester: '2025-2',
   },
-  { name: 'Santiago Gomez', role: 'Desarrollador', semester: '2026-1' },
+  { 
+    name: 'Santiago Gomez', 
+    role: 'Desarrollador', 
+    photo: santiagogPhoto, 
+    link: 'https://github.com/SantiGomez2519', 
+    linkName: 'GitHub', 
+    semester: '2026-1',
+  },
   { name: 'Laura Ortiz', role: 'Desarrolladora', semester: '2026-1' },
   { name: 'Jhon Fredy Alzate', role: 'Desarrollador', semester: '2026-1' },
   { name: 'Mateo Pineda', role: 'Desarrollador', semester: '2026-2' },
