@@ -7,6 +7,7 @@ import manuelaPhoto from '@/assets/images/manuela.jpeg';
 import danielPhoto from '@/assets/images/daniel.jpg';
 import juanPhoto from '@/assets/images/juan.jpg';
 import alejandroPhoto from '@/assets/images/alejandro.jpg';
+import santiagoPhoto from '@/assets/images/santiago.jpg';
 
 // constants
 const direction: TeamMemberInterface[] = [
@@ -50,11 +51,26 @@ const team: TeamMemberInterface[] = [
     semester: '2025-2',
     photo: manuelaPhoto,
   },
+  {
+    name: 'Santiago Idárraga',
+    role: 'Desarrollador',
+    photo: santiagoPhoto,
+    link: 'https://github.com/sidarragac',
+    linkName: 'GitHub',
+    semester: '2025-2',
+  },
   { name: 'Santiago Gomez', role: 'Desarrollador', semester: '2026-1' },
   { name: 'Laura Ortiz', role: 'Desarrolladora', semester: '2026-1' },
   { name: 'Jhon Fredy Alzate', role: 'Desarrollador', semester: '2026-1' },
   { name: 'Mateo Pineda', role: 'Desarrollador', semester: '2026-2' },
-  { name: 'Santiago Idárraga', role: 'Desarrollador', semester: '2026-2' },
+  {
+    name: 'Santiago Idárraga',
+    role: 'Desarrollador',
+    photo: santiagoPhoto,
+    link: 'https://github.com/sidarragac',
+    linkName: 'GitHub',
+    semester: '2026-2',
+  },
   { name: 'Esteban Álvarez', role: 'Desarrollador', semester: '2026-2' },
   {
     name: 'Juan Esteban Trujillo',
