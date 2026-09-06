@@ -61,7 +61,7 @@ const team: TeamMemberInterface[] = [
     semester: '2025-2',
   },
   { 
-    name: 'Santiago Gomez', 
+    name: 'Santiago Gómez Ospina', 
     role: 'Desarrollador', 
     photo: santiagogPhoto, 
     link: 'https://github.com/SantiGomez2519', 
