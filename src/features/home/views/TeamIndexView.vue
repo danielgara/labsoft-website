@@ -11,6 +11,7 @@ import santiagoPhoto from '@/assets/images/santiago.jpg';
 import santiagogPhoto from '@/assets/images/santiagog.jpeg';
 import mateoPhoto from '@/assets/images/mateo.jpeg';
 import lauraPhoto from '@/assets/images/laura.jpeg';
+import davidPhoto from '@/assets/images/david.jpg';
 
 
 // constants
@@ -48,6 +49,14 @@ const team: TeamMemberInterface[] = [
     link: 'https://github.com/alejoriosm04',
     linkName: 'GitHub',
     semester: '2025-2'
+  },
+  {
+    name: 'David Lopera Londoño',
+    role: 'Desarrollador',
+    photo: davidPhoto,
+    link: 'https://dalolito.github.io/',
+    linkName: 'Sitio Web',
+    semester: '2025-2',
   },
   {
     name: 'Manuela Castaño Franco',
