@@ -10,6 +10,8 @@ import alejandroPhoto from '@/assets/images/alejandro.jpg';
 import santiagoPhoto from '@/assets/images/santiago.jpg';
 import santiagogPhoto from '@/assets/images/santiagog.jpeg';
 import mateoPhoto from '@/assets/images/mateo.jpeg';
+import lauraPhoto from '@/assets/images/laura.jpeg';
+
 
 // constants
 const direction: TeamMemberInterface[] = [
@@ -69,8 +71,15 @@ const team: TeamMemberInterface[] = [
     linkName: 'GitHub', 
     semester: '2026-1',
   },
-  { name: 'Laura Ortiz', role: 'Desarrolladora', semester: '2026-1' },
   { name: 'Jhon Fredy Alzate', role: 'Desarrollador', semester: '2026-1' },
+  { 
+    name: 'Laura Ortiz Usme',
+    role: 'Desarrolladora',
+    photo: lauraPhoto,
+    link: 'https://www.linkedin.com/in/laura-ortiz-usme-7651033b1/',
+    linkName: 'LinkedIn',
+    semester: '2026-1',
+  },
   { 
     name: 'Mateo Pineda',
     role: 'Desarrollador',
