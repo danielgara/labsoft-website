@@ -12,6 +12,7 @@ import santiagogPhoto from '@/assets/images/santiagog.jpeg';
 import mateoPhoto from '@/assets/images/mateo.jpeg';
 import lauraPhoto from '@/assets/images/laura.jpeg';
 import davidPhoto from '@/assets/images/david.jpg';
+import jhonnathanPhoto from '@/assets/images/jhonnathan.jpg';
 
 
 // constants
@@ -35,10 +36,26 @@ const team: TeamMemberInterface[] = [
     semester: '2024-2'
   },
   {
+    name: 'Jhonnathan Stiven Ocampo',
+    role: 'Desarrollador',
+    photo: jhonnathanPhoto,
+    link: 'https://github.com/Jhonnathan93',
+    linkName: 'GitHub',
+    semester: '2024-2'
+  },
+  {
     name: 'Alejandro Ríos Muñoz',
     role: 'Líder de Desarrollo',
     photo: alejandroPhoto,
     link: 'https://github.com/alejoriosm04',
+    linkName: 'GitHub',
+    semester: '2025-1'
+  },
+  {
+    name: 'Jhonnathan Stiven Ocampo',
+    role: 'Desarrollador',
+    photo: jhonnathanPhoto,
+    link: 'https://github.com/Jhonnathan93',
     linkName: 'GitHub',
     semester: '2025-1'
   },
