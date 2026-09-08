@@ -13,6 +13,7 @@ import mateoPhoto from '@/assets/images/mateo.jpeg';
 import lauraPhoto from '@/assets/images/laura.jpeg';
 import davidPhoto from '@/assets/images/david.jpg';
 import jhonnathanPhoto from '@/assets/images/jhonnathan.jpg';
+import evelynPhoto from '@/assets/images/evelyn.jpeg';
 
 
 // constants
@@ -28,18 +29,18 @@ const direction: TeamMemberInterface[] = [
 
 const team: TeamMemberInterface[] = [
   {
-    name: 'Alejandro Ríos Muñoz',
-    role: 'Desarrollador',
-    photo: alejandroPhoto,
-    link: 'https://github.com/alejoriosm04',
-    linkName: 'GitHub',
-    semester: '2024-2'
-  },
-  {
     name: 'Jhonnathan Stiven Ocampo',
     role: 'Desarrollador',
     photo: jhonnathanPhoto,
     link: 'https://github.com/Jhonnathan93',
+    linkName: 'GitHub',
+    semester: '2024-2'
+  },
+  {
+    name: 'Evelyn Alejandra Zapata',
+    role: 'Desarrolladora',
+    photo: evelynPhoto,
+    link: 'https://github.com/EvelynZapata20',
     linkName: 'GitHub',
     semester: '2024-2'
   },
@@ -56,6 +57,14 @@ const team: TeamMemberInterface[] = [
     role: 'Desarrollador',
     photo: jhonnathanPhoto,
     link: 'https://github.com/Jhonnathan93',
+    linkName: 'GitHub',
+    semester: '2025-1'
+  },
+  {
+    name: 'Evelyn Alejandra Zapata',
+    role: 'Desarrolladora',
+    photo: evelynPhoto,
+    link: 'https://github.com/EvelynZapata20',
     linkName: 'GitHub',
     semester: '2025-1'
   },
