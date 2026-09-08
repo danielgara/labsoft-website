@@ -16,7 +16,6 @@ import davidPhoto from '@/assets/images/david.jpg';
 import jhonnathanPhoto from '@/assets/images/jhonnathan.jpg';
 import evelynPhoto from '@/assets/images/evelyn.jpeg';
 
-
 // constants
 const direction: TeamMemberInterface[] = [
   {
@@ -35,7 +34,7 @@ const team: TeamMemberInterface[] = [
     photo: jhonnathanPhoto,
     link: 'https://github.com/Jhonnathan93',
     linkName: 'GitHub',
-    semester: '2024-2'
+    semester: '2024-2',
   },
   {
     name: 'Evelyn Alejandra Zapata',
@@ -43,7 +42,7 @@ const team: TeamMemberInterface[] = [
     photo: evelynPhoto,
     link: 'https://github.com/EvelynZapata20',
     linkName: 'GitHub',
-    semester: '2024-2'
+    semester: '2024-2',
   },
   {
     name: 'Alejandro Ríos Muñoz',
@@ -51,7 +50,7 @@ const team: TeamMemberInterface[] = [
     photo: alejandroPhoto,
     link: 'https://github.com/alejoriosm04',
     linkName: 'GitHub',
-    semester: '2025-1'
+    semester: '2025-1',
   },
   {
     name: 'Jhonnathan Stiven Ocampo',
@@ -59,7 +58,7 @@ const team: TeamMemberInterface[] = [
     photo: jhonnathanPhoto,
     link: 'https://github.com/Jhonnathan93',
     linkName: 'GitHub',
-    semester: '2025-1'
+    semester: '2025-1',
   },
   {
     name: 'Evelyn Alejandra Zapata',
@@ -67,7 +66,7 @@ const team: TeamMemberInterface[] = [
     photo: evelynPhoto,
     link: 'https://github.com/EvelynZapata20',
     linkName: 'GitHub',
-    semester: '2025-1'
+    semester: '2025-1',
   },
   {
     name: 'Alejandro Ríos Muñoz',
@@ -75,7 +74,7 @@ const team: TeamMemberInterface[] = [
     photo: alejandroPhoto,
     link: 'https://github.com/alejoriosm04',
     linkName: 'GitHub',
-    semester: '2025-2'
+    semester: '2025-2',
   },
   {
     name: 'David Lopera Londoño',
@@ -99,16 +98,16 @@ const team: TeamMemberInterface[] = [
     linkName: 'GitHub',
     semester: '2025-2',
   },
-  { 
-    name: 'Santiago Gómez Ospina', 
-    role: 'Desarrollador', 
-    photo: santiagogPhoto, 
-    link: 'https://github.com/SantiGomez2519', 
-    linkName: 'GitHub', 
+  {
+    name: 'Santiago Gómez Ospina',
+    role: 'Desarrollador',
+    photo: santiagogPhoto,
+    link: 'https://github.com/SantiGomez2519',
+    linkName: 'GitHub',
     semester: '2026-1',
   },
   { name: 'Jhon Fredy Alzate', role: 'Desarrollador', semester: '2026-1' },
-  { 
+  {
     name: 'Laura Ortiz Usme',
     role: 'Desarrolladora',
     photo: lauraPhoto,
@@ -116,7 +115,7 @@ const team: TeamMemberInterface[] = [
     linkName: 'LinkedIn',
     semester: '2026-1',
   },
-  { 
+  {
     name: 'Mateo Pineda',
     role: 'Desarrollador',
     photo: mateoPhoto,
@@ -138,9 +137,8 @@ const team: TeamMemberInterface[] = [
     photo: estebanPhoto,
     link: 'https://www.linkedin.com/in/esteban-alvarez-22519b274/',
     linkName: 'LinkedIn',
-    semester: '2026-2'
+    semester: '2026-2',
   },
-  
   {
     name: 'Juan Esteban Trujillo',
     role: 'Desarrollador',
@@ -170,7 +168,6 @@ function initials(name: string): string {
 function isRightSide(index: number): boolean {
   return index % 2 === 1;
 }
-
 </script>
 
 <template>
