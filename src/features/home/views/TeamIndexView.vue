@@ -10,6 +10,7 @@ import alejandroPhoto from '@/assets/images/alejandro.jpg';
 import santiagoPhoto from '@/assets/images/santiago.jpg';
 import santiagogPhoto from '@/assets/images/santiagog.jpeg';
 import mateoPhoto from '@/assets/images/mateo.jpeg';
+import estebanPhoto from '@/assets/images/esteban.jpeg';
 import lauraPhoto from '@/assets/images/laura.jpeg';
 import davidPhoto from '@/assets/images/david.jpg';
 import jhonnathanPhoto from '@/assets/images/jhonnathan.jpg';
@@ -131,7 +132,15 @@ const team: TeamMemberInterface[] = [
     linkName: 'GitHub',
     semester: '2026-2',
   },
-  { name: 'Esteban Álvarez', role: 'Desarrollador', semester: '2026-2' },
+  {
+    name: 'Esteban Álvarez',
+    role: 'Desarrollador',
+    photo: estebanPhoto,
+    link: 'https://www.linkedin.com/in/esteban-alvarez-22519b274/',
+    linkName: 'LinkedIn',
+    semester: '2026-2'
+  },
+  
   {
     name: 'Juan Esteban Trujillo',
     role: 'Desarrollador',
