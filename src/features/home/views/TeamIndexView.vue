@@ -15,6 +15,7 @@ import lauraPhoto from '@/assets/images/laura.jpeg';
 import davidPhoto from '@/assets/images/david.jpg';
 import jhonnathanPhoto from '@/assets/images/jhonnathan.jpg';
 import evelynPhoto from '@/assets/images/evelyn.jpeg';
+import santiagonPhoto from '@/assets/images/santiagon.jpg';
 
 // constants
 const direction: TeamMemberInterface[] = [
@@ -37,6 +38,14 @@ const team: TeamMemberInterface[] = [
     semester: '2024-2',
   },
   {
+    name: 'Santiago Neusa Ruiz',
+    role: 'Desarrollador',
+    photo: santiagonPhoto,
+    link: 'https://github.com/santiagoneusa',
+    linkName: 'GitHub',
+    semester: '2024-2',
+  },
+  {
     name: 'Evelyn Alejandra Zapata',
     role: 'Desarrolladora',
     photo: evelynPhoto,
@@ -49,6 +58,14 @@ const team: TeamMemberInterface[] = [
     role: 'Líder de Desarrollo',
     photo: alejandroPhoto,
     link: 'https://github.com/alejoriosm04',
+    linkName: 'GitHub',
+    semester: '2025-1',
+  },
+  {
+    name: 'Santiago Neusa Ruiz',
+    role: 'Líder de Desarrollo',
+    photo: santiagonPhoto,
+    link: 'https://github.com/santiagoneusa',
     linkName: 'GitHub',
     semester: '2025-1',
   },
