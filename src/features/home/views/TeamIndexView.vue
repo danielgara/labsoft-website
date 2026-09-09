@@ -16,6 +16,7 @@ import davidPhoto from '@/assets/images/david.jpg';
 import jhonnathanPhoto from '@/assets/images/jhonnathan.jpg';
 import evelynPhoto from '@/assets/images/evelyn.jpeg';
 import santiagonPhoto from '@/assets/images/santiagon.jpg';
+import jhonPhoto from '@/assets/images/jhon.jpeg';
 
 // constants
 const direction: TeamMemberInterface[] = [
@@ -123,7 +124,14 @@ const team: TeamMemberInterface[] = [
     linkName: 'GitHub',
     semester: '2026-1',
   },
-  { name: 'Jhon Fredy Alzate', role: 'Desarrollador', semester: '2026-1' },
+  {
+    name: 'Jhon Fredy Alzate',
+    role: 'Desarrollador',
+    photo: jhonPhoto,
+    link: 'https://github.com/jfalzaed',
+    linkName: 'GitHub',
+    semester: '2026-1',
+  },
   {
     name: 'Laura Ortiz Usme',
     role: 'Desarrolladora',
