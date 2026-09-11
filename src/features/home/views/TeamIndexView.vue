@@ -17,6 +17,7 @@ import jhonnathanPhoto from '@/assets/images/jhonnathan.jpg';
 import evelynPhoto from '@/assets/images/evelyn.jpeg';
 import santiagonPhoto from '@/assets/images/santiagon.jpg';
 import jhonPhoto from '@/assets/images/jhon.jpeg';
+import miguelPhoto from '@/assets/images/miguel.jpeg';
 
 // constants
 const direction: TeamMemberInterface[] = [
@@ -52,6 +53,12 @@ const team: TeamMemberInterface[] = [
     photo: evelynPhoto,
     link: 'https://github.com/EvelynZapata20',
     linkName: 'GitHub',
+    semester: '2024-2',
+  },
+  {
+    name: 'Miguel Jaramillo Arenas',
+    role: 'Desarrollador',
+    photo: miguelPhoto,
     semester: '2024-2',
   },
   {
