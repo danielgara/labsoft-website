@@ -18,6 +18,7 @@ import evelynPhoto from '@/assets/images/evelyn.jpeg';
 import santiagonPhoto from '@/assets/images/santiagon.jpg';
 import jhonPhoto from '@/assets/images/jhon.jpeg';
 import miguelPhoto from '@/assets/images/miguel.jpeg';
+import sebastianPhoto from '@/assets/images/sebastian.jpg';
 
 // constants
 const direction: TeamMemberInterface[] = [
@@ -62,6 +63,14 @@ const team: TeamMemberInterface[] = [
     semester: '2024-2',
   },
   {
+    name: 'Sebastian Restrepo Ortiz',
+    role: 'Desarrollador',
+    photo: sebastianPhoto,
+    link: 'https://github.com/srestrep74',
+    linkName: 'GitHub',
+    semester: '2024-2',
+  },
+  {
     name: 'Alejandro Ríos Muñoz',
     role: 'Líder de Desarrollo',
     photo: alejandroPhoto,
@@ -74,6 +83,14 @@ const team: TeamMemberInterface[] = [
     role: 'Líder de Desarrollo',
     photo: santiagonPhoto,
     link: 'https://github.com/santiagoneusa',
+    linkName: 'GitHub',
+    semester: '2025-1',
+  },
+  {
+    name: 'Sebastian Restrepo Ortiz',
+    role: 'Líder de Desarrollo',
+    photo: sebastianPhoto,
+    link: 'https://github.com/srestrep74',
     linkName: 'GitHub',
     semester: '2025-1',
   },
@@ -98,6 +115,14 @@ const team: TeamMemberInterface[] = [
     role: 'Líder de Desarrollo',
     photo: alejandroPhoto,
     link: 'https://github.com/alejoriosm04',
+    linkName: 'GitHub',
+    semester: '2025-2',
+  },
+  {
+    name: 'Sebastian Restrepo Ortiz',
+    role: 'Líder de Desarrollo',
+    photo: sebastianPhoto,
+    link: 'https://github.com/srestrep74',
     linkName: 'GitHub',
     semester: '2025-2',
   },
