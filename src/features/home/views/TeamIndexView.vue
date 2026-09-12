@@ -308,7 +308,7 @@ function isRightSide(index: number): boolean {
 
           <div class="flex flex-wrap gap-4" :class="isRightSide(index) ? '' : 'md:justify-end'">
             <article
-              v-for="(member, memberIndex) in membersBySemester(semester)"
+              v-for="member in membersBySemester(semester)"
               :key="member.name"
               class="glass-hover reveal-on-scroll w-[calc(50%-0.5rem)] rounded-2xl p-3.5 text-center sm:w-44"
             >
